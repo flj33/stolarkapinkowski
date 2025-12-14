@@ -1,4 +1,4 @@
-import { Layers, DoorOpen, TreeDeciduous, Wrench, Phone } from "lucide-react";
+import { Layers, DoorOpen, TreeDeciduous, Wrench } from "lucide-react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
@@ -35,7 +35,7 @@ const Services = () => {
       <div className="container mx-auto px-5 sm:px-6">
         <header className="text-center mb-12 sm:mb-16">
           <span className="text-primary font-semibold tracking-wide text-sm">
-            Usługi w&nbsp;Lesznie i&nbsp;okolicach
+            Zakres usług
           </span>
           <h2 className="mt-2 mb-4">
             Co mogę dla Ciebie zrobić?
@@ -77,30 +77,17 @@ const Services = () => {
             Nie wiesz, od&nbsp;czego zacząć?
           </h3>
           <p className="text-muted-foreground mb-6 max-w-xl mx-auto text-sm sm:text-base">
-            Zadzwoń lub napisz – chętnie doradzę i&nbsp;przygotuję bezpłatną wycenę. Działam szybko i&nbsp;konkretnie.
+            Opisz swój projekt – chętnie doradzę i&nbsp;przygotuję bezpłatną wycenę.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
-            <Button 
-              size="lg" 
-              className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-semibold touch-target"
-              asChild
-            >
-              <a href="tel:+48697277724">
-                <Phone className="mr-2 h-5 w-5" />
-                Zadzwoń teraz
-              </a>
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="w-full sm:w-auto font-medium touch-target"
-              asChild
-            >
-              <a href="#kontakt">
-                Wyślij zapytanie
-              </a>
-            </Button>
-          </div>
+          <Button 
+            size="lg" 
+            className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-semibold touch-target"
+            asChild
+          >
+            <a href="#kontakt">
+              Poproś o&nbsp;wycenę
+            </a>
+          </Button>
         </div>
       </div>
     </section>

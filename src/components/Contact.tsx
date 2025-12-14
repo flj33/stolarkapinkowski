@@ -5,13 +5,6 @@ import ContactForm from "./ContactForm";
 
 const contactInfo = [
   {
-    icon: Phone,
-    title: "Telefon",
-    value: "697 277 724",
-    description: "Zadzwoń – porozmawiamy o Twoim projekcie",
-    href: "tel:+48697277724"
-  },
-  {
     icon: Mail,
     title: "E-mail",
     value: "marcinpinkowski77@gmail.com",
@@ -19,10 +12,17 @@ const contactInfo = [
     href: "mailto:marcinpinkowski77@gmail.com"
   },
   {
+    icon: Phone,
+    title: "Telefon",
+    value: "697 277 724",
+    description: "Możesz też zadzwonić",
+    href: "tel:+48697277724"
+  },
+  {
     icon: MapPin,
-    title: "Lokalizacja",
-    value: "Leszno i okolice",
-    description: "Dojazd do klienta w cenie",
+    title: "Siedziba",
+    value: "Leszno, woj. wielkopolskie",
+    description: "Realizacje w całej Polsce",
     href: null
   },
   {
@@ -79,11 +79,10 @@ const Contact = () => {
           <div className="space-y-4 sm:space-y-6">
             <div className="bg-primary/5 rounded-xl p-5 sm:p-6 md:p-8 border border-primary/20">
               <h3 className="font-bold mb-3 sm:mb-4">
-                Wolisz porozmawiać? Zadzwoń!
+                Wolisz zadzwonić?
               </h3>
               <p className="text-muted-foreground mb-5 sm:mb-6 leading-relaxed text-sm sm:text-base">
-                Telefon to najszybszy sposób. Porozmawiamy o&nbsp;projekcie, ustalimy termin wizji lokalnej 
-                i&nbsp;przygotuję wycenę – wszystko bezpłatnie i&nbsp;bez zobowiązań.
+                Możesz też zadzwonić – porozmawiamy o&nbsp;projekcie i&nbsp;ustalimy szczegóły.
               </p>
               <Button 
                 size="lg" 
@@ -92,7 +91,7 @@ const Contact = () => {
               >
                 <a href="tel:+48697277724">
                   <Phone className="mr-2 h-5 w-5" />
-                  Zadzwoń: 697&nbsp;277&nbsp;724
+                  697&nbsp;277&nbsp;724
                 </a>
               </Button>
             </div>
@@ -106,9 +105,9 @@ const Contact = () => {
                 <p className="font-semibold text-foreground">Marcin Pińkowski Usługi Budowlane</p>
                 <p>NIP: 6931838292</p>
                 <p>REGON: 302245156</p>
-                <p className="pt-1.5 sm:pt-2">Zagłoby 17</p>
-                <p>64-100 Leszno</p>
+                <p className="pt-1.5 sm:pt-2">Zagłoby 17, 64-100 Leszno</p>
                 <p>woj. wielkopolskie</p>
+                <p className="pt-1.5 text-foreground/70">Realizuję zlecenia na terenie całej Polski</p>
               </div>
             </div>
           </div>
@@ -119,17 +118,17 @@ const Contact = () => {
             Gotowy na nową podłogę, drzwi lub taras?
           </h3>
           <p className="text-muted-foreground mb-5 sm:mb-6 max-w-xl mx-auto text-sm sm:text-base">
-            Nie zwlekaj – zadzwoń teraz i&nbsp;umów bezpłatną wycenę. Im szybciej zadzwonisz, 
-            tym szybciej zacznę realizację.
+            Opisz swój projekt w&nbsp;formularzu powyżej lub napisz na e-mail – przygotuję bezpłatną wycenę.
           </p>
           <Button 
             size="lg" 
-            className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground px-8 font-semibold touch-target"
+            variant="outline"
+            className="w-full sm:w-auto px-8 font-semibold touch-target"
             asChild
           >
-            <a href="tel:+48697277724">
-              <Phone className="mr-2 h-5 w-5" />
-              Zadzwoń: 697&nbsp;277&nbsp;724
+            <a href="mailto:marcinpinkowski77@gmail.com">
+              <Mail className="mr-2 h-5 w-5" />
+              Napisz e-mail
             </a>
           </Button>
         </div>

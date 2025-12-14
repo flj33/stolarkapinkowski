@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Phone, ArrowDown } from "lucide-react";
+import { Phone, ArrowDown, Calendar } from "lucide-react";
 import heroImage from "@/assets/garden-deck.jpg";
 
 const Hero = () => {
@@ -14,18 +14,18 @@ const Hero = () => {
       
       <div className="relative z-10 container mx-auto px-4 text-center">
         <span className="inline-block px-4 py-2 mb-6 text-sm font-semibold bg-primary/90 text-primary-foreground rounded-full tracking-wide">
-          Ponad 25 lat doświadczenia
+          Leszno i okolice · Ponad 25 lat doświadczenia
         </span>
         
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-primary-foreground mb-6 leading-tight tracking-tight">
-          Podłogi · Drzwi · Tarasy
+          Podłogi, Drzwi, Tarasy
           <br />
-          <span className="text-accent font-medium">Profesjonalny Montaż</span>
+          <span className="text-accent font-medium">– zamontowane solidnie i na czas</span>
         </h1>
         
         <p className="text-lg md:text-xl text-primary-foreground/90 max-w-2xl mx-auto mb-10 leading-relaxed">
-          Wykonuję kompleksowe usługi montażowe dla klientów indywidualnych i firm. 
-          Układanie podłóg, montaż drzwi, budowa tarasów drewnianych oraz inne prace wykończeniowe.
+          Szukasz sprawdzonego fachowca? Wykonuję kompleksowy montaż od A do Z: 
+          podłogi, drzwi, tarasy drewniane i więcej. <strong className="text-primary-foreground">Zadzwoń – wycena gratis.</strong>
         </p>
         
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -45,11 +45,16 @@ const Hero = () => {
             className="border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 px-8 py-6 text-lg font-medium"
             asChild
           >
-            <a href="#uslugi">
-              Zobacz usługi
+            <a href="#kontakt">
+              <Calendar className="mr-2 h-5 w-5" />
+              Umów bezpłatną wycenę
             </a>
           </Button>
         </div>
+        
+        <p className="text-primary-foreground/70 mt-6 text-sm">
+          Ponad 1000 zrealizowanych projektów · 500+ zadowolonych klientów
+        </p>
       </div>
       
       <a 

@@ -12,15 +12,15 @@ import gardenDeck from "@/assets/garden-deck.jpg";
 import commercialFloor from "@/assets/commercial-floor.jpg";
 
 const galleryImages = [
-  { src: gardenDeck, alt: "Taras drewniany w ogrodzie", category: "Tarasy" },
+  { src: gardenDeck, alt: "Taras drewniany w ogrodzie ze schodami", category: "Tarasy" },
+  { src: commercialFloor, alt: "Podłoga z drzwiami w obiekcie komercyjnym", category: "Podłogi" },
+  { src: doorFrame, alt: "Precyzyjny montaż futryny drzwiowej", category: "Drzwi" },
+  { src: roofDeck, alt: "Taras na dachu płaskim", category: "Tarasy" },
   { src: deckSteps, alt: "Schody tarasowe drewniane", category: "Tarasy" },
-  { src: commercialFloor, alt: "Podłoga komercyjna z drzwiami", category: "Podłogi" },
-  { src: roofDeck, alt: "Taras na dachu", category: "Tarasy" },
-  { src: doorFrame, alt: "Montaż futryny drzwiowej", category: "Stolarka" },
-  { src: deckWet, alt: "Taras drewniany", category: "Tarasy" },
-  { src: balconyDeck, alt: "Taras balkonowy", category: "Tarasy" },
-  { src: deckAerial, alt: "Widok z góry na taras", category: "Tarasy" },
-  { src: deckTable, alt: "Taras z meblami", category: "Tarasy" },
+  { src: deckWet, alt: "Taras drewniany po deszczu", category: "Tarasy" },
+  { src: balconyDeck, alt: "Deska tarasowa na balkonie", category: "Tarasy" },
+  { src: deckAerial, alt: "Taras z góry ze schodami", category: "Tarasy" },
+  { src: deckTable, alt: "Przestronny taras z meblami", category: "Tarasy" },
 ];
 
 const Gallery = () => {
@@ -30,37 +30,37 @@ const Gallery = () => {
     <section id="galeria" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
-          <span className="text-primary font-medium">Galeria realizacji</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4">
-            Nasze Prace
+          <span className="text-primary font-semibold tracking-wide">Galeria realizacji</span>
+          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4 tracking-tight">
+            Moje Prace
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Zobacz przykłady naszych realizacji. Każdy projekt wykonujemy z najwyższą starannością i dbałością o szczegóły.
+          <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+            Zobacz przykłady moich realizacji. Każdy projekt wykonuję z najwyższą starannością i dbałością o szczegóły.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
           {galleryImages.map((image, index) => (
             <div
               key={index}
               className={`relative overflow-hidden rounded-lg cursor-pointer group ${
-                index === 0 ? "md:col-span-2 md:row-span-2" : ""
+                index === 0 ? "col-span-2 row-span-2" : ""
               }`}
               onClick={() => setSelectedImage(image.src)}
             >
-              <img
-                src={image.src}
-                alt={image.alt}
-                className={`w-full object-cover transition-transform duration-500 group-hover:scale-110 ${
-                  index === 0 ? "h-64 md:h-full" : "h-48 md:h-64"
-                }`}
-              />
+              <div className={`w-full ${index === 0 ? "aspect-square" : "aspect-[4/3]"}`}>
+                <img
+                  src={image.src}
+                  alt={image.alt}
+                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              </div>
               <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/40 transition-colors duration-300 flex items-end">
-                <div className="p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <span className="text-xs font-medium text-primary-foreground bg-primary/80 px-2 py-1 rounded">
+                <div className="p-3 md:p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                  <span className="text-xs font-semibold text-primary-foreground bg-primary/80 px-2 py-1 rounded">
                     {image.category}
                   </span>
-                  <p className="text-primary-foreground font-medium mt-2">{image.alt}</p>
+                  <p className="text-primary-foreground font-medium mt-2 text-sm md:text-base">{image.alt}</p>
                 </div>
               </div>
             </div>

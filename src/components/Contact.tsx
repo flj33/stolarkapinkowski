@@ -115,19 +115,31 @@ const Contact = () => {
             Gotowy na nową podłogę, drzwi lub taras?
           </h3>
           <p className="text-muted-foreground mb-5 sm:mb-6 max-w-xl mx-auto text-sm sm:text-base">
-            Opisz swój projekt w&nbsp;formularzu powyżej lub napisz na e-mail – przygotuję bezpłatną wycenę.
+            Skontaktuj się – przygotuję bezpłatną wycenę.
           </p>
-          <Button 
-            size="lg" 
-            variant="outline"
-            className="w-full sm:w-auto px-8 font-semibold touch-target"
-            asChild
-          >
-            <a href="mailto:marcinpinkowski77@gmail.com">
-              <Mail className="mr-2 h-5 w-5" />
-              Napisz e-mail
-            </a>
-          </Button>
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Button 
+              size="lg" 
+              className="w-full sm:w-auto px-8 font-semibold touch-target"
+              asChild
+            >
+              <a href="mailto:marcinpinkowski77@gmail.com?subject=Zapytanie%20o%20wycenę%20usług&body=Dzień%20dobry,%0A%0AProszę%20o%20wycenę%20usługi:%0A-%20Rodzaj%20prac:%20%0A-%20Miejscowość:%20%0A-%20Przybliżony%20metraż:%20%0A-%20Preferowany%20termin:%20%0A%0APozdrawiam,%0A">
+                <Mail className="mr-2 h-5 w-5" />
+                Napisz e-mail
+              </a>
+            </Button>
+            <Button 
+              size="lg" 
+              variant="outline"
+              className="w-full sm:w-auto px-8 font-semibold touch-target"
+              asChild
+            >
+              <a href="tel:+48697277724">
+                <Phone className="mr-2 h-5 w-5" />
+                Zadzwoń: 697&nbsp;277&nbsp;724
+              </a>
+            </Button>
+          </div>
         </div>
       </div>
     </section>

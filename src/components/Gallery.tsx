@@ -12,15 +12,15 @@ import gardenDeck from "@/assets/garden-deck.jpg";
 import commercialFloor from "@/assets/commercial-floor.jpg";
 
 const galleryImages = [
-  { src: gardenDeck, alt: "Taras drewniany w ogrodzie ze schodami", category: "Tarasy" },
-  { src: commercialFloor, alt: "Podłoga z drzwiami w obiekcie komercyjnym", category: "Podłogi" },
-  { src: doorFrame, alt: "Precyzyjny montaż futryny drzwiowej", category: "Drzwi" },
-  { src: roofDeck, alt: "Taras na dachu płaskim", category: "Tarasy" },
-  { src: deckSteps, alt: "Schody tarasowe drewniane", category: "Tarasy" },
-  { src: deckWet, alt: "Taras drewniany po deszczu", category: "Tarasy" },
+  { src: gardenDeck, alt: "Taras drewniany z eleganckim wykończeniem", category: "Tarasy" },
+  { src: deckSteps, alt: "Schody tarasowe z drewna egzotycznego", category: "Tarasy" },
+  { src: doorFrame, alt: "Montaż futryny drzwiowej", category: "Drzwi" },
+  { src: roofDeck, alt: "Taras na dachu z desek kompozytowych", category: "Tarasy" },
+  { src: commercialFloor, alt: "Podłoga drewniana w salonie", category: "Podłogi" },
+  { src: deckWet, alt: "Impregnowany taras drewniany", category: "Tarasy" },
   { src: balconyDeck, alt: "Deska tarasowa na balkonie", category: "Tarasy" },
-  { src: deckAerial, alt: "Taras z góry ze schodami", category: "Tarasy" },
-  { src: deckTable, alt: "Przestronny taras z meblami", category: "Tarasy" },
+  { src: deckAerial, alt: "Taras wielopoziomowy ze schodami", category: "Tarasy" },
+  { src: deckTable, alt: "Przestronny taras wypoczynkowy", category: "Tarasy" },
 ];
 
 const Gallery = () => {
@@ -48,7 +48,7 @@ const Gallery = () => {
               }`}
               onClick={() => setSelectedImage(image.src)}
             >
-              <div className={`w-full ${index === 0 ? "aspect-square" : "aspect-[4/3]"}`}>
+              <div className="w-full h-full aspect-square">
                 <img
                   src={image.src}
                   alt={image.alt}

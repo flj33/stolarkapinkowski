@@ -77,26 +77,26 @@ const pricingCategories = [
 
 const Pricing = () => {
   return (
-    <section id="cennik" className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-4">
+    <section id="cennik" className="section-padding bg-secondary/30">
+      <div className="container mx-auto px-5 sm:px-6">
         {/* Header */}
-        <div className="text-center mb-12">
-          <span className="text-primary font-semibold tracking-wide">Cennik usług</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4 tracking-tight">
+        <header className="text-center mb-10 sm:mb-12">
+          <span className="text-primary font-semibold tracking-wide text-sm">Cennik usług</span>
+          <h2 className="mt-2 mb-4">
             Ile kosztuje montaż?
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Poniżej znajdziesz orientacyjne ceny moich usług. Ostateczna wycena zależy od zakresu prac, 
-            stanu podłoża i ilości materiału – dlatego zawsze proponuję bezpłatny pomiar na miejscu.
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Poniżej znajdziesz orientacyjne ceny moich usług. Ostateczna wycena zależy od&nbsp;zakresu prac, 
+            stanu podłoża i&nbsp;ilości materiału – dlatego zawsze proponuję bezpłatny pomiar na&nbsp;miejscu.
           </p>
-        </div>
+        </header>
 
         {/* Pricing Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-10 sm:mb-12">
           {pricingCategories.map((category) => (
             <Card key={category.title} className="border-border/50 bg-card hover:shadow-lg transition-shadow">
-              <CardHeader className="pb-4">
-                <CardTitle className="text-xl font-bold tracking-tight text-primary">
+              <CardHeader className="pb-3 sm:pb-4">
+                <CardTitle className="text-lg sm:text-xl font-bold text-primary">
                   {category.title}
                 </CardTitle>
                 <p className="text-sm text-muted-foreground">{category.description}</p>
@@ -104,7 +104,7 @@ const Pricing = () => {
               <CardContent>
                 <ul className="space-y-2">
                   {category.items.map((item) => (
-                    <li key={item.name} className="flex justify-between items-start text-sm gap-2">
+                    <li key={item.name} className="flex justify-between items-start text-sm gap-3">
                       <span className="text-foreground/80">{item.name}</span>
                       <span className="font-semibold text-foreground whitespace-nowrap">{item.price}</span>
                     </li>
@@ -116,44 +116,44 @@ const Pricing = () => {
         </div>
 
         {/* Measurement Info */}
-        <div className="bg-card rounded-xl p-6 border border-border/50 mb-8">
-          <h3 className="text-lg font-bold mb-4 tracking-tight">Pomiar i wycena</h3>
-          <div className="grid sm:grid-cols-2 gap-4 text-sm">
-            <div className="flex items-start gap-2">
+        <div className="bg-card rounded-xl p-5 sm:p-6 border border-border/50 mb-6 sm:mb-8">
+          <h3 className="text-lg font-bold mb-3 sm:mb-4">Pomiar i&nbsp;wycena</h3>
+          <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 text-sm">
+            <div className="flex items-start gap-2.5">
               <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-              <span><strong>Do 30 km od Leszna:</strong> 100 zł (odliczane od zlecenia)</span>
+              <span><strong>Do&nbsp;30&nbsp;km od&nbsp;Leszna:</strong> 100&nbsp;zł (odliczane od&nbsp;zlecenia)</span>
             </div>
-            <div className="flex items-start gap-2">
+            <div className="flex items-start gap-2.5">
               <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-              <span><strong>Do 50 km od Leszna:</strong> 150 zł (odliczane od zlecenia)</span>
+              <span><strong>Do&nbsp;50&nbsp;km od&nbsp;Leszna:</strong> 150&nbsp;zł (odliczane od&nbsp;zlecenia)</span>
             </div>
           </div>
         </div>
 
         {/* CTA Block */}
-        <div className="bg-card rounded-xl p-8 border border-border/50 text-center">
-          <h3 className="text-xl md:text-2xl font-bold mb-3 tracking-tight">
+        <div className="bg-card rounded-xl p-6 sm:p-8 border border-border/50 text-center">
+          <h3 className="mb-3">
             Potrzebujesz dokładnej wyceny?
           </h3>
-          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-            Ceny orientacyjne mogą się różnić w zależności od stanu technicznego, dostępności i zakresu prac. 
+          <p className="text-muted-foreground mb-6 max-w-xl mx-auto text-sm sm:text-base">
+            Ceny orientacyjne mogą się różnić w&nbsp;zależności od&nbsp;stanu technicznego, dostępności i&nbsp;zakresu prac. 
             Zadzwoń lub opisz swój projekt – przygotowuję bezpłatne wyceny.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
             <Button 
               size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+              className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-semibold touch-target"
               asChild
             >
               <a href="tel:+48697277724">
                 <Phone className="mr-2 h-5 w-5" />
-                Zadzwoń: 697 277 724
+                Zadzwoń: 697&nbsp;277&nbsp;724
               </a>
             </Button>
             <Button 
               size="lg" 
               variant="outline"
-              className="font-medium"
+              className="w-full sm:w-auto font-medium touch-target"
               asChild
             >
               <a href="#kontakt">

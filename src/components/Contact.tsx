@@ -36,77 +36,77 @@ const contactInfo = [
 
 const Contact = () => {
   return (
-    <section id="kontakt" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <span className="text-primary font-semibold tracking-wide">Kontakt</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4 tracking-tight">
+    <section id="kontakt" className="section-padding bg-background">
+      <div className="container mx-auto px-5 sm:px-6">
+        <header className="text-center mb-10 sm:mb-16">
+          <span className="text-primary font-semibold tracking-wide text-sm">Kontakt</span>
+          <h2 className="mt-2 mb-4">
             Zadzwoń lub napisz – wycena gratis
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Potrzebujesz podłogi, drzwi lub tarasu? Opisz projekt, a ja przygotuję bezpłatną wycenę. 
-            <strong className="text-foreground"> Bez zobowiązań – decyzja należy do Ciebie.</strong>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Potrzebujesz podłogi, drzwi lub tarasu? Opisz projekt, a&nbsp;ja przygotuję bezpłatną wycenę. 
+            <strong className="text-foreground"> Bez zobowiązań – decyzja należy do&nbsp;Ciebie.</strong>
           </p>
-        </div>
+        </header>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mb-10 sm:mb-12">
           {contactInfo.map((info) => (
             <Card key={info.title} className="text-center hover:shadow-lg transition-shadow border-border/50">
-              <CardContent className="pt-6">
-                <div className="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <info.icon className="h-7 w-7 text-primary" />
+              <CardContent className="p-4 sm:pt-6 sm:p-6">
+                <div className="w-11 h-11 sm:w-14 sm:h-14 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-3 sm:mb-4">
+                  <info.icon className="h-5 w-5 sm:h-7 sm:w-7 text-primary" />
                 </div>
-                <h3 className="font-bold text-lg mb-1">{info.title}</h3>
+                <h3 className="font-bold text-sm sm:text-lg mb-1">{info.title}</h3>
                 {info.href ? (
                   <a 
                     href={info.href} 
-                    className="text-primary font-semibold mb-2 text-sm break-all block hover:underline"
+                    className="text-primary font-semibold mb-1 sm:mb-2 text-xs sm:text-sm break-all block hover:underline touch-target inline-flex items-center justify-center"
                   >
                     {info.value}
                   </a>
                 ) : (
-                  <p className="text-primary font-semibold mb-2 text-sm">{info.value}</p>
+                  <p className="text-primary font-semibold mb-1 sm:mb-2 text-xs sm:text-sm">{info.value}</p>
                 )}
-                <p className="text-sm text-muted-foreground">{info.description}</p>
+                <p className="text-xs sm:text-sm text-muted-foreground hidden sm:block">{info.description}</p>
               </CardContent>
             </Card>
           ))}
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 mb-12">
+        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 mb-10 sm:mb-12">
           <ContactForm />
           
-          <div className="space-y-6">
-            <div className="bg-primary/5 rounded-xl p-6 md:p-8 border border-primary/20">
-              <h3 className="text-xl font-bold mb-4 tracking-tight">
+          <div className="space-y-4 sm:space-y-6">
+            <div className="bg-primary/5 rounded-xl p-5 sm:p-6 md:p-8 border border-primary/20">
+              <h3 className="font-bold mb-3 sm:mb-4">
                 Wolisz porozmawiać? Zadzwoń!
               </h3>
-              <p className="text-muted-foreground mb-6 leading-relaxed">
-                Telefon to najszybszy sposób. Porozmawiamy o projekcie, ustalimy termin wizji lokalnej 
-                i przygotuję wycenę – wszystko bezpłatnie i bez zobowiązań.
+              <p className="text-muted-foreground mb-5 sm:mb-6 leading-relaxed text-sm sm:text-base">
+                Telefon to najszybszy sposób. Porozmawiamy o&nbsp;projekcie, ustalimy termin wizji lokalnej 
+                i&nbsp;przygotuję wycenę – wszystko bezpłatnie i&nbsp;bez zobowiązań.
               </p>
               <Button 
                 size="lg" 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold w-full"
+                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold touch-target"
                 asChild
               >
                 <a href="tel:+48697277724">
                   <Phone className="mr-2 h-5 w-5" />
-                  Zadzwoń: 697 277 724
+                  Zadzwoń: 697&nbsp;277&nbsp;724
                 </a>
               </Button>
             </div>
 
-            <div className="bg-secondary/50 rounded-xl p-6">
-              <div className="flex items-center gap-3 mb-4">
-                <Building2 className="h-6 w-6 text-primary" />
-                <h4 className="font-bold">Dane firmy</h4>
+            <div className="bg-secondary/50 rounded-xl p-5 sm:p-6">
+              <div className="flex items-center gap-3 mb-3 sm:mb-4">
+                <Building2 className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+                <h4 className="font-bold text-sm sm:text-base">Dane firmy</h4>
               </div>
-              <div className="space-y-2 text-sm text-muted-foreground">
+              <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-muted-foreground">
                 <p className="font-semibold text-foreground">Marcin Pińkowski Usługi Budowlane</p>
                 <p>NIP: 6931838292</p>
                 <p>REGON: 302245156</p>
-                <p className="pt-2">Zagłoby 17</p>
+                <p className="pt-1.5 sm:pt-2">Zagłoby 17</p>
                 <p>64-100 Leszno</p>
                 <p>woj. wielkopolskie</p>
               </div>
@@ -114,22 +114,22 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="bg-card rounded-2xl p-8 md:p-12 border border-border/50 text-center">
-          <h3 className="text-2xl md:text-3xl font-bold mb-4 tracking-tight">
+        <div className="bg-card rounded-2xl p-6 sm:p-8 md:p-12 border border-border/50 text-center">
+          <h3 className="mb-3 sm:mb-4">
             Gotowy na nową podłogę, drzwi lub taras?
           </h3>
-          <p className="text-muted-foreground mb-6 max-w-xl mx-auto leading-relaxed">
-            Nie zwlekaj – zadzwoń teraz i umów bezpłatną wycenę. Im szybciej zadzwonisz, 
+          <p className="text-muted-foreground mb-5 sm:mb-6 max-w-xl mx-auto text-sm sm:text-base">
+            Nie zwlekaj – zadzwoń teraz i&nbsp;umów bezpłatną wycenę. Im szybciej zadzwonisz, 
             tym szybciej zacznę realizację.
           </p>
           <Button 
             size="lg" 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 font-semibold"
+            className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground px-8 font-semibold touch-target"
             asChild
           >
             <a href="tel:+48697277724">
               <Phone className="mr-2 h-5 w-5" />
-              Zadzwoń: 697 277 724
+              Zadzwoń: 697&nbsp;277&nbsp;724
             </a>
           </Button>
         </div>

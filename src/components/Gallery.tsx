@@ -29,19 +29,22 @@ const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   return (
-    <section id="galeria" className="py-20 bg-background">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <span className="text-primary font-semibold tracking-wide">Realizacje z Leszna i okolic</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4 tracking-tight">
+    <section id="galeria" className="section-padding bg-background">
+      <div className="container mx-auto px-5 sm:px-6">
+        <header className="text-center mb-10 sm:mb-16">
+          <span className="text-primary font-semibold tracking-wide text-sm">
+            Realizacje z&nbsp;Leszna i&nbsp;okolic
+          </span>
+          <h2 className="mt-2 mb-4">
             Zobacz, jak pracuję
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            To nie stockowe zdjęcia – to moje realne projekty. Każdy wykonany z dbałością o szczegóły i zadowolenie klienta. <strong className="text-foreground">Twój projekt może być następny.</strong>
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            To nie stockowe zdjęcia – to moje realne projekty. Każdy wykonany z&nbsp;dbałością o&nbsp;szczegóły i&nbsp;zadowolenie klienta. 
+            <strong className="text-foreground"> Twój projekt może być następny.</strong>
           </p>
-        </div>
+        </header>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 md:gap-4">
           {galleryImages.map((image, index) => (
             <div
               key={index}
@@ -54,28 +57,31 @@ const Gallery = () => {
                 <img
                   src={image.src}
                   alt={image.alt}
+                  loading="lazy"
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
               <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/40 transition-colors duration-300 flex items-end">
-                <div className="p-3 md:p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                <div className="p-3 sm:p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                   <span className="text-xs font-semibold text-primary-foreground bg-primary/80 px-2 py-1 rounded">
                     {image.category}
                   </span>
-                  <p className="text-primary-foreground font-medium mt-2 text-sm md:text-base">{image.alt}</p>
+                  <p className="text-primary-foreground font-medium mt-2 text-xs sm:text-sm md:text-base line-clamp-2">
+                    {image.alt}
+                  </p>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        <div className="mt-12 text-center">
-          <p className="text-muted-foreground mb-4">
-            Podoba Ci się to, co widzisz? Porozmawiajmy o Twoim projekcie.
+        <div className="mt-10 sm:mt-12 text-center">
+          <p className="text-muted-foreground mb-4 text-sm sm:text-base">
+            Podoba Ci się to, co widzisz? Porozmawiajmy o&nbsp;Twoim projekcie.
           </p>
           <Button 
             size="lg" 
-            className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+            className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-semibold touch-target"
             asChild
           >
             <a href="tel:+48697277724">
@@ -87,7 +93,7 @@ const Gallery = () => {
       </div>
 
       <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-        <DialogContent className="max-w-4xl p-0 overflow-hidden bg-transparent border-none">
+        <DialogContent className="max-w-4xl p-2 sm:p-0 overflow-hidden bg-transparent border-none">
           {selectedImage && (
             <img
               src={selectedImage}

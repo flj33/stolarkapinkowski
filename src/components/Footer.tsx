@@ -1,4 +1,4 @@
-import { Phone, MapPin } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import logo from "@/assets/logo.png";
 
 const Footer = () => {
@@ -12,12 +12,12 @@ const Footer = () => {
             <div className="flex items-center gap-3 mb-4">
               <img 
                 src={logo} 
-                alt="Montaż Stolarki Budowlanej" 
+                alt="Marcin Pińkowski Usługi Budowlane" 
                 className="h-16 w-auto"
               />
               <div>
                 <span className="font-bold block">Marcin Pińkowski</span>
-                <span className="text-sm text-muted-foreground">Montaż Stolarki Budowlanej</span>
+                <span className="text-sm text-muted-foreground">Usługi Budowlane</span>
               </div>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
@@ -41,21 +41,31 @@ const Footer = () => {
             <h4 className="font-bold mb-4">Kontakt</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
-                <Phone className="h-4 w-4 text-primary" />
+                <Phone className="h-4 w-4 text-primary flex-shrink-0" />
                 <a href="tel:+48697277724" className="hover:text-primary transition-colors font-medium">
-                  +48 697 277 724
+                  697 277 724
                 </a>
               </li>
-              <li className="flex items-center gap-2">
-                <MapPin className="h-4 w-4 text-primary" />
-                Okolice lokalne
+              <li className="flex items-start gap-2">
+                <Mail className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                <a href="mailto:marcinpinkowski77@gmail.com" className="hover:text-primary transition-colors break-all">
+                  marcinpinkowski77@gmail.com
+                </a>
+              </li>
+              <li className="flex items-start gap-2">
+                <MapPin className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                <span>Zagłoby 17, 64-100 Leszno</span>
               </li>
             </ul>
+            <div className="mt-4 text-xs text-muted-foreground">
+              <p>NIP: 6931838292</p>
+              <p>REGON: 302245156</p>
+            </div>
           </div>
         </div>
 
         <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>© {currentYear} Marcin Pińkowski - Montaż Stolarki Budowlanej. Wszelkie prawa zastrzeżone.</p>
+          <p>© {currentYear} Marcin Pińkowski Usługi Budowlane. Wszelkie prawa zastrzeżone.</p>
         </div>
       </div>
     </footer>

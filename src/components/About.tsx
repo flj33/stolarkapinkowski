@@ -1,4 +1,4 @@
-import { Award, Clock, Users, CheckCircle, Phone, Mail } from "lucide-react";
+import { Award, Clock, Users, CheckCircle, Phone, Mail, MapPin } from "lucide-react";
 
 const stats = [{
   icon: Clock,
@@ -51,16 +51,20 @@ const About = () => {
               <h3 className="font-semibold text-foreground mb-4">Dane kontaktowe</h3>
               <div className="space-y-3">
                 <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-primary" />
+                  <Phone className="w-5 h-5 text-primary flex-shrink-0" />
                   <a href="tel:+48697277724" className="text-muted-foreground hover:text-primary transition-colors">
                     697 277 724
                   </a>
                 </div>
                 <div className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-primary" />
-                  <a href="mailto:marcinpinkowski77@gmail.com" className="text-muted-foreground hover:text-primary transition-colors">
+                  <Mail className="w-5 h-5 text-primary flex-shrink-0" />
+                  <a href="mailto:marcinpinkowski77@gmail.com" className="text-muted-foreground hover:text-primary transition-colors break-all">
                     marcinpinkowski77@gmail.com
                   </a>
+                </div>
+                <div className="flex items-center gap-3">
+                  <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
+                  <span className="text-muted-foreground">Zagłoby 17, 64-100 Leszno</span>
                 </div>
               </div>
             </div>

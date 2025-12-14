@@ -7,7 +7,7 @@ const navLinks = [
   { href: "#uslugi", label: "Usługi" },
   { href: "#cennik", label: "Cennik" },
   { href: "#galeria", label: "Galeria" },
-  { href: "#o-nas", label: "O nas" },
+  { href: "#o-nas", label: "O mnie" },
   { href: "#kontakt", label: "Kontakt" },
 ];
 
@@ -23,6 +23,18 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Prevent body scroll when menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isMenuOpen]);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -31,28 +43,28 @@ const Header = () => {
           : "bg-transparent"
       }`}
     >
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16 md:h-20">
-          <a href="#" className="flex items-center gap-3">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between h-16 sm:h-20">
+          <a href="#" className="flex items-center gap-2 sm:gap-3">
             <img 
               src={logo} 
               alt="Montaż Stolarki Budowlanej" 
-              className={`h-12 md:h-14 w-auto transition-all ${
+              className={`h-10 sm:h-12 md:h-14 w-auto transition-all ${
                 isScrolled ? "" : "brightness-0 invert"
               }`}
             />
-            <div className={`hidden sm:block ${isScrolled ? "text-foreground" : "text-primary-foreground"}`}>
-              <span className="font-bold text-sm md:text-base block leading-tight">Marcin Pińkowski</span>
-              <span className="text-xs opacity-80">Montaż Stolarki Budowlanej</span>
+            <div className={`hidden xs:block ${isScrolled ? "text-foreground" : "text-primary-foreground"}`}>
+              <span className="font-bold text-sm sm:text-base block leading-tight">Marcin Pińkowski</span>
+              <span className="text-xs opacity-80 hidden sm:block">Usługi Budowlane</span>
             </div>
           </a>
 
-          <nav className="hidden md:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
+                className={`text-sm font-medium transition-colors hover:text-primary py-2 ${
                   isScrolled ? "text-foreground" : "text-primary-foreground"
                 }`}
               >
@@ -61,22 +73,24 @@ const Header = () => {
             ))}
           </nav>
 
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-4">
             <Button
-              size="sm"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+              size="default"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold touch-target"
               asChild
             >
               <a href="tel:+48697277724">
                 <Phone className="mr-2 h-4 w-4" />
-                697 277 724
+                <span className="hidden xl:inline">697&nbsp;277&nbsp;724</span>
+                <span className="xl:hidden">Zadzwoń</span>
               </a>
             </Button>
           </div>
 
           <button
-            className="md:hidden p-2"
+            className="lg:hidden p-2.5 -mr-2 touch-target flex items-center justify-center"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
+            aria-label={isMenuOpen ? "Zamknij menu" : "Otwórz menu"}
           >
             {isMenuOpen ? (
               <X className={`h-6 w-6 ${isScrolled ? "text-foreground" : "text-primary-foreground"}`} />
@@ -86,24 +100,31 @@ const Header = () => {
           </button>
         </div>
 
+        {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="md:hidden bg-background border-t border-border">
-            <nav className="flex flex-col py-4">
-              {navLinks.map((link) => (
-                <a
-                  key={link.href}
-                  href={link.href}
-                  className="px-4 py-3 text-foreground hover:bg-secondary transition-colors"
-                  onClick={() => setIsMenuOpen(false)}
+          <div className="lg:hidden fixed inset-0 top-16 sm:top-20 bg-background z-40">
+            <nav className="flex flex-col h-full">
+              <div className="flex-1 overflow-y-auto py-4">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.href}
+                    href={link.href}
+                    className="block px-5 py-4 text-foreground text-lg font-medium hover:bg-secondary transition-colors border-b border-border/50"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+              <div className="p-5 border-t border-border bg-secondary/30 safe-area-inset">
+                <Button 
+                  size="lg"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold touch-target h-14" 
+                  asChild
                 >
-                  {link.label}
-                </a>
-              ))}
-              <div className="px-4 pt-4">
-                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground" asChild>
-                  <a href="tel:+48697277724">
-                    <Phone className="mr-2 h-4 w-4" />
-                    697 277 724
+                  <a href="tel:+48697277724" onClick={() => setIsMenuOpen(false)}>
+                    <Phone className="mr-2 h-5 w-5" />
+                    Zadzwoń: 697&nbsp;277&nbsp;724
                   </a>
                 </Button>
               </div>

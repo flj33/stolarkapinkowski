@@ -71,18 +71,18 @@ const ContactForm = () => {
   }
 
   return (
-    <div className="bg-card rounded-xl p-6 md:p-8 border border-border/50">
-      <h3 className="text-xl md:text-2xl font-bold mb-2 tracking-tight">
+    <div className="bg-card rounded-xl p-5 sm:p-6 md:p-8 border border-border/50">
+      <h3 className="font-bold mb-2">
         Opisz krótko swój projekt
       </h3>
-      <p className="text-muted-foreground mb-6">
-        Wypełnij formularz – oddzwonię z bezpłatną wyceną. Zwykle odpowiadam tego samego dnia.
+      <p className="text-muted-foreground mb-5 sm:mb-6 text-sm sm:text-base">
+        Wypełnij formularz – oddzwonię z&nbsp;bezpłatną wyceną. Zwykle odpowiadam tego samego dnia.
       </p>
 
-      <form onSubmit={handleSubmit} className="space-y-5">
-        <div className="grid sm:grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <Label htmlFor="name">Imię *</Label>
+      <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+        <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
+          <div className="space-y-1.5 sm:space-y-2">
+            <Label htmlFor="name" className="text-sm">Imię *</Label>
             <Input
               id="name"
               name="name"
@@ -90,11 +90,11 @@ const ContactForm = () => {
               value={formData.name}
               onChange={handleChange}
               required
-              className="bg-background"
+              className="bg-background h-12"
             />
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="phone">Telefon *</Label>
+          <div className="space-y-1.5 sm:space-y-2">
+            <Label htmlFor="phone" className="text-sm">Telefon *</Label>
             <Input
               id="phone"
               name="phone"
@@ -103,14 +103,14 @@ const ContactForm = () => {
               value={formData.phone}
               onChange={handleChange}
               required
-              className="bg-background"
+              className="bg-background h-12"
             />
           </div>
         </div>
 
-        <div className="grid sm:grid-cols-2 gap-4">
-          <div className="space-y-2">
-            <Label htmlFor="email">E-mail</Label>
+        <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
+          <div className="space-y-1.5 sm:space-y-2">
+            <Label htmlFor="email" className="text-sm">E-mail</Label>
             <Input
               id="email"
               name="email"
@@ -118,11 +118,11 @@ const ContactForm = () => {
               placeholder="Opcjonalnie"
               value={formData.email}
               onChange={handleChange}
-              className="bg-background"
+              className="bg-background h-12"
             />
           </div>
-          <div className="space-y-2">
-            <Label htmlFor="location">Miejscowość *</Label>
+          <div className="space-y-1.5 sm:space-y-2">
+            <Label htmlFor="location" className="text-sm">Miejscowość *</Label>
             <Input
               id="location"
               name="location"
@@ -130,13 +130,13 @@ const ContactForm = () => {
               value={formData.location}
               onChange={handleChange}
               required
-              className="bg-background"
+              className="bg-background h-12"
             />
           </div>
         </div>
 
-        <div className="space-y-2">
-          <Label htmlFor="message">Opis projektu *</Label>
+        <div className="space-y-1.5 sm:space-y-2">
+          <Label htmlFor="message" className="text-sm">Opis projektu *</Label>
           <Textarea
             id="message"
             name="message"
@@ -145,14 +145,14 @@ const ContactForm = () => {
             onChange={handleChange}
             required
             rows={4}
-            className="bg-background resize-none"
+            className="bg-background resize-none min-h-[120px]"
           />
           <p className="text-xs text-muted-foreground">
             Im więcej szczegółów, tym dokładniejsza wycena.
           </p>
         </div>
 
-        <div className="flex items-start space-x-3">
+        <div className="flex items-start space-x-3 py-1">
           <Checkbox
             id="consent"
             checked={formData.consent}
@@ -161,8 +161,8 @@ const ContactForm = () => {
             }
             className="mt-0.5"
           />
-          <Label htmlFor="consent" className="text-sm text-muted-foreground leading-relaxed cursor-pointer">
-            Wyrażam zgodę na przetwarzanie moich danych osobowych w celu odpowiedzi na zapytanie. 
+          <Label htmlFor="consent" className="text-xs sm:text-sm text-muted-foreground leading-relaxed cursor-pointer font-normal">
+            Wyrażam zgodę na przetwarzanie moich danych osobowych w&nbsp;celu odpowiedzi na zapytanie. 
             Dane nie będą udostępniane osobom trzecim.
           </Label>
         </div>
@@ -170,7 +170,7 @@ const ContactForm = () => {
         <Button 
           type="submit" 
           size="lg"
-          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold touch-target h-14"
           disabled={isSubmitting}
         >
           {isSubmitting ? (
@@ -178,13 +178,13 @@ const ContactForm = () => {
           ) : (
             <>
               <Send className="mr-2 h-5 w-5" />
-              Wyślij zapytanie o wycenę
+              Wyślij zapytanie o&nbsp;wycenę
             </>
           )}
         </Button>
 
         <p className="text-xs text-center text-muted-foreground">
-          Wolisz zadzwonić? <a href="tel:+48697277724" className="text-primary font-semibold hover:underline">697 277 724</a>
+          Wolisz zadzwonić? <a href="tel:+48697277724" className="text-primary font-semibold hover:underline">697&nbsp;277&nbsp;724</a>
         </p>
       </form>
     </div>

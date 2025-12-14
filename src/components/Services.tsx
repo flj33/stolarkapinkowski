@@ -6,60 +6,63 @@ const services = [
   {
     icon: Layers,
     title: "Podłogi",
-    description: "Układam panele, deski drewniane i winylowe LVT – równo, cicho, bez skrzypienia. Efekt? Piękna podłoga na lata.",
+    description: "Układam panele, deski drewniane i&nbsp;winylowe LVT – równo, cicho, bez skrzypienia. Efekt? Piękna podłoga na&nbsp;lata.",
     items: ["Panele podłogowe", "Podłogi drewniane", "Podłogi winylowe (LVT)", "Listwy i progi"]
   },
   {
     icon: DoorOpen,
     title: "Drzwi",
-    description: "Montuję drzwi wewnętrzne i zewnętrzne z pełnym wykończeniem. Ościeżnice, futryny, regulacja – wszystko w jednym zleceniu.",
+    description: "Montuję drzwi wewnętrzne i&nbsp;zewnętrzne z&nbsp;pełnym wykończeniem. Ościeżnice, futryny, regulacja – wszystko w&nbsp;jednym zleceniu.",
     items: ["Drzwi wewnętrzne", "Drzwi zewnętrzne", "Futryny i ościeżnice", "Regulacja i serwis"]
   },
   {
     icon: TreeDeciduous,
     title: "Tarasy",
-    description: "Buduję trwałe tarasy drewniane i kompozytowe. Solidna konstrukcja, estetyczne wykończenie, odporność na warunki atmosferyczne.",
+    description: "Buduję trwałe tarasy drewniane i&nbsp;kompozytowe. Solidna konstrukcja, estetyczne wykończenie, odporność na&nbsp;warunki atmosferyczne.",
     items: ["Tarasy drewniane", "Podesty i balkony", "Schody tarasowe", "Impregnacja i konserwacja"]
   },
   {
     icon: Wrench,
     title: "Pozostałe usługi",
-    description: "Okna, parapety, rolety, moskitiery – komfort i funkcjonalność Twojego domu w jednych rękach.",
+    description: "Okna, parapety, rolety, moskitiery – komfort i&nbsp;funkcjonalność Twojego domu w&nbsp;jednych rękach.",
     items: ["Okna PCV i drewniane", "Parapety", "Rolety i żaluzje", "Moskitiery"]
   }
 ];
 
 const Services = () => {
   return (
-    <section id="uslugi" className="py-20 bg-secondary/30">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <span className="text-primary font-semibold tracking-wide">Usługi w Lesznie i okolicach</span>
-          <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-4 tracking-tight">
+    <section id="uslugi" className="section-padding bg-secondary/30">
+      <div className="container mx-auto px-5 sm:px-6">
+        <header className="text-center mb-12 sm:mb-16">
+          <span className="text-primary font-semibold tracking-wide text-sm">
+            Usługi w&nbsp;Lesznie i&nbsp;okolicach
+          </span>
+          <h2 className="mt-2 mb-4">
             Co mogę dla Ciebie zrobić?
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Potrzebujesz nowej podłogi, drzwi czy tarasu? Wykonuję kompleksowy montaż – od pomiaru przez zakup materiałów po gotowe wykończenie. Ty odbierasz efekt.
+          <p className="text-muted-foreground max-w-2xl mx-auto">
+            Potrzebujesz nowej podłogi, drzwi czy tarasu? Wykonuję kompleksowy montaż – od&nbsp;pomiaru przez zakup materiałów po&nbsp;gotowe wykończenie. Ty&nbsp;odbierasz efekt.
           </p>
-        </div>
+        </header>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
           {services.map((service) => (
             <Card key={service.title} className="group hover:shadow-lg transition-all duration-300 border-border/50 bg-card">
-              <CardHeader>
-                <div className="w-14 h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                  <service.icon className="h-7 w-7 text-primary" />
+              <CardHeader className="pb-3">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 bg-primary/10 rounded-lg flex items-center justify-center mb-3 sm:mb-4 group-hover:bg-primary/20 transition-colors">
+                  <service.icon className="h-6 w-6 sm:h-7 sm:w-7 text-primary" />
                 </div>
-                <CardTitle className="text-xl font-bold tracking-tight">{service.title}</CardTitle>
-                <CardDescription className="text-muted-foreground leading-relaxed">
-                  {service.description}
-                </CardDescription>
+                <CardTitle className="text-lg sm:text-xl font-bold">{service.title}</CardTitle>
+                <CardDescription 
+                  className="text-muted-foreground text-sm leading-relaxed"
+                  dangerouslySetInnerHTML={{ __html: service.description }}
+                />
               </CardHeader>
-              <CardContent>
+              <CardContent className="pt-0">
                 <ul className="space-y-2">
                   {service.items.map((item) => (
                     <li key={item} className="flex items-center text-sm text-foreground/80">
-                      <span className="w-1.5 h-1.5 bg-accent rounded-full mr-2 flex-shrink-0" />
+                      <span className="w-1.5 h-1.5 bg-accent rounded-full mr-2.5 flex-shrink-0" />
                       {item}
                     </li>
                   ))}
@@ -69,17 +72,17 @@ const Services = () => {
           ))}
         </div>
 
-        <div className="mt-12 text-center bg-card rounded-xl p-8 border border-border/50">
-          <h3 className="text-xl md:text-2xl font-bold mb-3 tracking-tight">
-            Nie wiesz, od czego zacząć?
+        <div className="mt-10 sm:mt-12 text-center bg-card rounded-xl p-6 sm:p-8 border border-border/50">
+          <h3 className="mb-3">
+            Nie wiesz, od&nbsp;czego zacząć?
           </h3>
-          <p className="text-muted-foreground mb-6 max-w-xl mx-auto">
-            Zadzwoń lub napisz – chętnie doradzę i przygotuję bezpłatną wycenę. Działam szybko i konkretnie.
+          <p className="text-muted-foreground mb-6 max-w-xl mx-auto text-sm sm:text-base">
+            Zadzwoń lub napisz – chętnie doradzę i&nbsp;przygotuję bezpłatną wycenę. Działam szybko i&nbsp;konkretnie.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
             <Button 
               size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+              className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-semibold touch-target"
               asChild
             >
               <a href="tel:+48697277724">
@@ -90,7 +93,7 @@ const Services = () => {
             <Button 
               size="lg" 
               variant="outline"
-              className="font-medium"
+              className="w-full sm:w-auto font-medium touch-target"
               asChild
             >
               <a href="#kontakt">

@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Phone, ArrowDown } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import heroImage from "@/assets/garden-deck.jpg";
 
 const Hero = () => {
@@ -28,30 +28,22 @@ const Hero = () => {
           podłogi, drzwi, tarasy drewniane i&nbsp;więcej. Siedziba w&nbsp;Lesznie, realizacje w&nbsp;całym kraju.
         </p>
         
-        <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 justify-center items-center max-w-md sm:max-w-none mx-auto">
+        <div className="flex flex-col gap-4 justify-center items-center max-w-md sm:max-w-none mx-auto">
           <Button 
             size="lg" 
-            className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-6 text-base font-semibold touch-target"
+            className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-base font-semibold touch-target"
             asChild
           >
             <a href="#kontakt">
               Poproś o&nbsp;wycenę
             </a>
           </Button>
-          <Button 
-            size="lg" 
-            variant="outline"
-            className="w-full sm:w-auto border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 px-6 py-6 text-base font-medium touch-target"
-            asChild
-          >
-            <a href="tel:+48697277724">
-              <Phone className="mr-2 h-5 w-5" />
-              Zadzwoń: 697&nbsp;277&nbsp;724
-            </a>
-          </Button>
+          <p className="text-primary-foreground/80 text-sm">
+            Wolisz zadzwonić? <a href="tel:+48697277724" className="text-primary-foreground font-semibold hover:underline">697&nbsp;277&nbsp;724</a>
+          </p>
         </div>
         
-        <p className="text-primary-foreground/70 mt-6 text-sm">
+        <p className="text-primary-foreground/60 mt-8 text-sm">
           Ponad 1000 zrealizowanych projektów · 500+ zadowolonych klientów
         </p>
       </div>

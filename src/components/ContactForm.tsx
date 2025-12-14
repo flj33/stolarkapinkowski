@@ -152,14 +152,14 @@ const ContactForm = () => {
           </p>
         </div>
 
-        <div className="flex items-start space-x-3 py-1">
+        <div className="flex items-start gap-3 py-2">
           <Checkbox
             id="consent"
             checked={formData.consent}
             onCheckedChange={(checked) => 
               setFormData(prev => ({ ...prev, consent: checked as boolean }))
             }
-            className="mt-0.5"
+            className="mt-1 h-5 w-5 flex-shrink-0"
           />
           <Label htmlFor="consent" className="text-xs sm:text-sm text-muted-foreground leading-relaxed cursor-pointer font-normal">
             Wyrażam zgodę na przetwarzanie moich danych osobowych w&nbsp;celu przygotowania odpowiedzi na moje zapytanie. 

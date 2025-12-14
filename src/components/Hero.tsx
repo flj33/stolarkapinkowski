@@ -34,9 +34,9 @@ const Hero = () => {
             className="bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-lg"
             asChild
           >
-            <a href="#kontakt">
+            <a href="tel:+48697277724">
               <Phone className="mr-2 h-5 w-5" />
-              Zadzwoń teraz
+              Zadzwoń: 697 277 724
             </a>
           </Button>
           <Button 

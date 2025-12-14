@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X, Phone } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import logo from "@/assets/logo.png";
 
 const navLinks = [
   { href: "#uslugi", label: "Usługi" },
@@ -31,13 +32,18 @@ const Header = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16 md:h-20">
-          <a href="#" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xl">S</span>
+          <a href="#" className="flex items-center gap-3">
+            <img 
+              src={logo} 
+              alt="Montaż Stolarki Budowlanej" 
+              className={`h-12 md:h-14 w-auto transition-all ${
+                isScrolled ? "" : "brightness-0 invert"
+              }`}
+            />
+            <div className={`hidden sm:block ${isScrolled ? "text-foreground" : "text-primary-foreground"}`}>
+              <span className="font-bold text-sm md:text-base block leading-tight">Marcin Pińkowski</span>
+              <span className="text-xs opacity-80">Montaż Stolarki Budowlanej</span>
             </div>
-            <span className={`font-bold text-lg ${isScrolled ? "text-foreground" : "text-primary-foreground"}`}>
-              Stolarka-Montaż
-            </span>
           </a>
 
           <nav className="hidden md:flex items-center gap-8">
@@ -60,9 +66,9 @@ const Header = () => {
               className="bg-primary hover:bg-primary/90 text-primary-foreground"
               asChild
             >
-              <a href="#kontakt">
+              <a href="tel:+48697277724">
                 <Phone className="mr-2 h-4 w-4" />
-                Zadzwoń
+                697 277 724
               </a>
             </Button>
           </div>
@@ -94,9 +100,9 @@ const Header = () => {
               ))}
               <div className="px-4 pt-4">
                 <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground" asChild>
-                  <a href="#kontakt">
+                  <a href="tel:+48697277724">
                     <Phone className="mr-2 h-4 w-4" />
-                    Zadzwoń teraz
+                    697 277 724
                   </a>
                 </Button>
               </div>

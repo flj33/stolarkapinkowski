@@ -1,19 +1,19 @@
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, MapPin, Clock, User } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 
 const contactInfo = [
   {
-    icon: Phone,
-    title: "Telefon",
-    value: "+48 XXX XXX XXX",
-    description: "Zadzwoń, aby umówić się na bezpłatną wycenę"
+    icon: User,
+    title: "Właściciel",
+    value: "Marcin Pińkowski",
+    description: "Profesjonalny montaż stolarki budowlanej"
   },
   {
-    icon: Mail,
-    title: "Email",
-    value: "kontakt@example.pl",
-    description: "Napisz, odpowiemy w ciągu 24h"
+    icon: Phone,
+    title: "Telefon",
+    value: "+48 697 277 724",
+    description: "Zadzwoń, aby umówić się na bezpłatną wycenę"
   },
   {
     icon: MapPin,
@@ -39,7 +39,7 @@ const Contact = () => {
             Skontaktuj się z nami
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
-            Potrzebujesz fachowej pomocy przy montażu? Zadzwoń lub napisz – 
+            Potrzebujesz fachowej pomocy przy montażu? Zadzwoń – 
             chętnie odpowiem na wszystkie pytania i przygotuję bezpłatną wycenę.
           </p>
         </div>
@@ -67,16 +67,16 @@ const Contact = () => {
             Zadzwoń już teraz i umów się na bezpłatną wycenę. 
             Profesjonalna obsługa i konkurencyjne ceny.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-8">
+          <Button 
+            size="lg" 
+            className="bg-primary hover:bg-primary/90 text-primary-foreground px-8"
+            asChild
+          >
+            <a href="tel:+48697277724">
               <Phone className="mr-2 h-5 w-5" />
-              Zadzwoń: +48 XXX XXX XXX
-            </Button>
-            <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary/10 px-8">
-              <Mail className="mr-2 h-5 w-5" />
-              Napisz email
-            </Button>
-          </div>
+              Zadzwoń: +48 697 277 724
+            </a>
+          </Button>
         </div>
       </div>
     </section>

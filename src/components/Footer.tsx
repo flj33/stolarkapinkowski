@@ -1,4 +1,5 @@
-import { Phone, Mail, MapPin } from "lucide-react";
+import { Phone, MapPin } from "lucide-react";
+import logo from "@/assets/logo.png";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -8,11 +9,16 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-3 gap-8">
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-xl">S</span>
+            <div className="flex items-center gap-3 mb-4">
+              <img 
+                src={logo} 
+                alt="Montaż Stolarki Budowlanej" 
+                className="h-16 w-auto"
+              />
+              <div>
+                <span className="font-bold block">Marcin Pińkowski</span>
+                <span className="text-sm text-muted-foreground">Montaż Stolarki Budowlanej</span>
               </div>
-              <span className="font-bold text-lg">Stolarka-Montaż</span>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
               Profesjonalne usługi montażowe stolarki budowlanej i podłóg. 
@@ -36,11 +42,9 @@ const Footer = () => {
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-primary" />
-                +48 XXX XXX XXX
-              </li>
-              <li className="flex items-center gap-2">
-                <Mail className="h-4 w-4 text-primary" />
-                kontakt@example.pl
+                <a href="tel:+48697277724" className="hover:text-primary transition-colors">
+                  +48 697 277 724
+                </a>
               </li>
               <li className="flex items-center gap-2">
                 <MapPin className="h-4 w-4 text-primary" />
@@ -51,7 +55,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border mt-8 pt-8 text-center text-sm text-muted-foreground">
-          <p>© {currentYear} Stolarka-Montaż. Wszelkie prawa zastrzeżone.</p>
+          <p>© {currentYear} Marcin Pińkowski - Montaż Stolarki Budowlanej. Wszelkie prawa zastrzeżone.</p>
         </div>
       </div>
     </footer>

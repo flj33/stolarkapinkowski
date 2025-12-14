@@ -21,28 +21,28 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-muted-foreground text-sm leading-relaxed">
-              Profesjonalne usługi montażowe stolarki budowlanej i podłóg. 
+              Profesjonalne usługi montażowe: podłogi, drzwi, tarasy i inne prace wykończeniowe. 
               Ponad 25 lat doświadczenia w branży.
             </p>
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Usługi</h4>
+            <h4 className="font-bold mb-4">Usługi</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li>Montaż okien i drzwi</li>
               <li>Układanie podłóg</li>
+              <li>Montaż drzwi</li>
               <li>Budowa tarasów drewnianych</li>
-              <li>Montaż rolet i żaluzji</li>
-              <li>Serwis stolarki</li>
+              <li>Montaż okien i parapetów</li>
+              <li>Rolety i żaluzje</li>
             </ul>
           </div>
 
           <div>
-            <h4 className="font-semibold mb-4">Kontakt</h4>
+            <h4 className="font-bold mb-4">Kontakt</h4>
             <ul className="space-y-3 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
                 <Phone className="h-4 w-4 text-primary" />
-                <a href="tel:+48697277724" className="hover:text-primary transition-colors">
+                <a href="tel:+48697277724" className="hover:text-primary transition-colors font-medium">
                   +48 697 277 724
                 </a>
               </li>

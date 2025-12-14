@@ -1,4 +1,4 @@
-import { Phone, FileText, Check } from "lucide-react";
+import { FileText, Check } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
@@ -128,6 +128,9 @@ const Pricing = () => {
               <span><strong>Do&nbsp;50&nbsp;km od&nbsp;Leszna:</strong> 150&nbsp;zł (odliczane od&nbsp;zlecenia)</span>
             </div>
           </div>
+          <p className="text-muted-foreground text-sm mt-3">
+            Realizuję zlecenia na terenie całej Polski – koszty dojazdu ustalamy indywidualnie.
+          </p>
         </div>
 
         {/* CTA Block */}
@@ -136,32 +139,19 @@ const Pricing = () => {
             Potrzebujesz dokładnej wyceny?
           </h3>
           <p className="text-muted-foreground mb-6 max-w-xl mx-auto text-sm sm:text-base">
-            Ceny orientacyjne mogą się różnić w&nbsp;zależności od&nbsp;stanu technicznego, dostępności i&nbsp;zakresu prac. 
-            Zadzwoń lub opisz swój projekt – przygotowuję bezpłatne wyceny.
+            Ceny orientacyjne mogą się różnić w&nbsp;zależności od&nbsp;stanu technicznego i&nbsp;zakresu prac. 
+            Opisz swój projekt – przygotuję bezpłatną wycenę.
           </p>
-          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center max-w-md sm:max-w-none mx-auto">
-            <Button 
-              size="lg" 
-              className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-semibold touch-target"
-              asChild
-            >
-              <a href="tel:+48697277724">
-                <Phone className="mr-2 h-5 w-5" />
-                Zadzwoń: 697&nbsp;277&nbsp;724
-              </a>
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline"
-              className="w-full sm:w-auto font-medium touch-target"
-              asChild
-            >
-              <a href="#kontakt">
-                <FileText className="mr-2 h-5 w-5" />
-                Wyślij zapytanie
-              </a>
-            </Button>
-          </div>
+          <Button 
+            size="lg" 
+            className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-semibold touch-target"
+            asChild
+          >
+            <a href="#kontakt">
+              <FileText className="mr-2 h-5 w-5" />
+              Opisz projekt i&nbsp;poproś o&nbsp;wycenę
+            </a>
+          </Button>
         </div>
       </div>
     </section>

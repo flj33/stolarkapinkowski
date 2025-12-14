@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Phone, ArrowDown, Calendar } from "lucide-react";
+import { Phone, ArrowDown } from "lucide-react";
 import heroImage from "@/assets/garden-deck.jpg";
 
 const Hero = () => {
@@ -14,7 +14,7 @@ const Hero = () => {
       
       <div className="relative z-10 container mx-auto px-5 sm:px-6 text-center pt-20 pb-24">
         <span className="inline-block px-4 py-2.5 mb-5 text-sm font-semibold bg-primary/90 text-primary-foreground rounded-full tracking-wide">
-          Leszno i&nbsp;okolice · Ponad 25&nbsp;lat doświadczenia
+          Ponad 25&nbsp;lat doświadczenia · Realizacje w&nbsp;całej Polsce
         </span>
         
         <h1 className="text-primary-foreground mb-5">
@@ -25,8 +25,7 @@ const Hero = () => {
         
         <p className="text-base sm:text-lg text-primary-foreground/90 max-w-xl mx-auto mb-8 leading-relaxed">
           Szukasz sprawdzonego fachowca? Wykonuję kompleksowy montaż od&nbsp;A&nbsp;do&nbsp;Z: 
-          podłogi, drzwi, tarasy drewniane i&nbsp;więcej. 
-          <strong className="text-primary-foreground block mt-2">Zadzwoń – wycena gratis.</strong>
+          podłogi, drzwi, tarasy drewniane i&nbsp;więcej. Siedziba w&nbsp;Lesznie, realizacje w&nbsp;całym kraju.
         </p>
         
         <div className="flex flex-col gap-3 sm:flex-row sm:gap-4 justify-center items-center max-w-md sm:max-w-none mx-auto">
@@ -35,9 +34,8 @@ const Hero = () => {
             className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-6 text-base font-semibold touch-target"
             asChild
           >
-            <a href="tel:+48697277724">
-              <Phone className="mr-2 h-5 w-5" />
-              Zadzwoń: 697&nbsp;277&nbsp;724
+            <a href="#kontakt">
+              Poproś o&nbsp;wycenę
             </a>
           </Button>
           <Button 
@@ -46,9 +44,9 @@ const Hero = () => {
             className="w-full sm:w-auto border-primary-foreground/30 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20 px-6 py-6 text-base font-medium touch-target"
             asChild
           >
-            <a href="#kontakt">
-              <Calendar className="mr-2 h-5 w-5" />
-              Umów bezpłatną wycenę
+            <a href="tel:+48697277724">
+              <Phone className="mr-2 h-5 w-5" />
+              Zadzwoń: 697&nbsp;277&nbsp;724
             </a>
           </Button>
         </div>

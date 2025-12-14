@@ -1,5 +1,4 @@
-import { Award, Clock, Users, CheckCircle, Phone } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Award, Clock, Users, CheckCircle } from "lucide-react";
 
 const stats = [{
   icon: Clock,
@@ -31,10 +30,9 @@ const About = () => {
             </h2>
             
             <p className="text-muted-foreground mb-5 sm:mb-6 text-base sm:text-lg leading-relaxed">
-              Od ponad <strong className="text-foreground">25&nbsp;lat</strong> zajmuję się montażem podłóg, drzwi i&nbsp;tarasów 
-              w&nbsp;<strong className="text-foreground">Lesznie i&nbsp;okolicach</strong>. Wykonałem już ponad 1000&nbsp;projektów 
-              dla klientów indywidualnych i&nbsp;firm. Wiem, że liczy się terminowość, czystość i&nbsp;solidne wykonanie 
-              – dlatego na tym się skupiam.
+              Od ponad <strong className="text-foreground">25&nbsp;lat</strong> zajmuję się montażem podłóg, drzwi i&nbsp;tarasów. 
+              Siedziba mojej firmy mieści się w&nbsp;<strong className="text-foreground">Lesznie</strong>, ale realizuję projekty 
+              w&nbsp;całej Polsce. Wykonałem już ponad 1000&nbsp;projektów dla klientów indywidualnych i&nbsp;firm.
             </p>
 
             <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
@@ -55,21 +53,17 @@ const About = () => {
 
             <div className="bg-card p-5 sm:p-6 rounded-xl border border-border/50">
               <h3 className="font-semibold text-foreground mb-2 sm:mb-3 text-base sm:text-lg">
-                Zadzwoń i&nbsp;porozmawiajmy o&nbsp;Twoim projekcie
+                Porozmawiajmy o&nbsp;Twoim projekcie
               </h3>
               <p className="text-muted-foreground text-sm mb-4">
-                Bezpłatna wycena, doradztwo w&nbsp;wyborze materiałów, termin realizacji – wszystko ustalimy telefonicznie.
+                Bezpłatna wycena, doradztwo w&nbsp;wyborze materiałów, termin realizacji – wszystko ustalimy po kontakcie.
               </p>
-              <Button 
-                size="lg" 
-                className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-semibold touch-target"
-                asChild
+              <a 
+                href="#kontakt" 
+                className="text-primary font-semibold hover:underline text-sm sm:text-base"
               >
-                <a href="tel:+48697277724">
-                  <Phone className="mr-2 h-5 w-5" />
-                  Zadzwoń: 697&nbsp;277&nbsp;724
-                </a>
-              </Button>
+                Przejdź do formularza kontaktowego →
+              </a>
             </div>
           </div>
 

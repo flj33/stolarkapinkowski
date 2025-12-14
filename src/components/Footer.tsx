@@ -64,8 +64,9 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-border mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-xs sm:text-sm text-muted-foreground">
+        <div className="border-t border-border mt-6 sm:mt-8 pt-6 sm:pt-8 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs sm:text-sm text-muted-foreground">
           <p>© {currentYear} Marcin Pińkowski Usługi Budowlane. Wszelkie prawa zastrzeżone.</p>
+          <p className="text-muted-foreground/70">Projekt strony: FLAI Studio</p>
         </div>
       </div>
     </footer>

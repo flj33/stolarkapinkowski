@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { Phone } from "lucide-react";
 
 import doorFrame from "@/assets/door-frame.jpg";
 import deckWet from "@/assets/deck-wet.jpg";
@@ -33,7 +32,7 @@ const Gallery = () => {
       <div className="container mx-auto px-5 sm:px-6">
         <header className="text-center mb-10 sm:mb-16">
           <span className="text-primary font-semibold tracking-wide text-sm">
-            Realizacje z&nbsp;Leszna i&nbsp;okolic
+            Galeria realizacji
           </span>
           <h2 className="mt-2 mb-4">
             Zobacz, jak pracuję
@@ -77,16 +76,15 @@ const Gallery = () => {
 
         <div className="mt-10 sm:mt-12 text-center">
           <p className="text-muted-foreground mb-4 text-sm sm:text-base">
-            Podoba Ci się to, co widzisz? Porozmawiajmy o&nbsp;Twoim projekcie.
+            Podoba Ci się to, co widzisz? Twój projekt może wyglądać równie dobrze.
           </p>
           <Button 
             size="lg" 
             className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground font-semibold touch-target"
             asChild
           >
-            <a href="tel:+48697277724">
-              <Phone className="mr-2 h-5 w-5" />
-              Zadzwoń po bezpłatną wycenę
+            <a href="#kontakt">
+              Opisz swój projekt
             </a>
           </Button>
         </div>

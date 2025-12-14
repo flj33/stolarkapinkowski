@@ -76,36 +76,18 @@ const Contact = () => {
         <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 mb-10 sm:mb-12">
           <ContactForm />
           
-          <div className="space-y-4 sm:space-y-6">
-            <div className="bg-primary/5 rounded-xl p-5 sm:p-6 md:p-8 border border-primary/20">
-              <h3 className="font-bold mb-3 sm:mb-4">
-                Masz pytania?
-              </h3>
-              <p className="text-muted-foreground mb-5 sm:mb-6 leading-relaxed text-sm sm:text-base">
-                Jeśli wolisz porozmawiać, zadzwoń – chętnie odpowiem na pytania i&nbsp;doradzę.
-              </p>
-              <a 
-                href="tel:+48697277724"
-                className="inline-flex items-center text-primary font-semibold hover:underline text-base sm:text-lg"
-              >
-                <Phone className="mr-2 h-5 w-5" />
-                697&nbsp;277&nbsp;724
-              </a>
+          <div className="bg-secondary/50 rounded-xl p-5 sm:p-6">
+            <div className="flex items-center gap-3 mb-3 sm:mb-4">
+              <Building2 className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
+              <h4 className="font-bold text-sm sm:text-base">Dane firmy</h4>
             </div>
-
-            <div className="bg-secondary/50 rounded-xl p-5 sm:p-6">
-              <div className="flex items-center gap-3 mb-3 sm:mb-4">
-                <Building2 className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
-                <h4 className="font-bold text-sm sm:text-base">Dane firmy</h4>
-              </div>
-              <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-muted-foreground">
-                <p className="font-semibold text-foreground">Marcin Pińkowski Usługi Budowlane</p>
-                <p>NIP: 6931838292</p>
-                <p>REGON: 302245156</p>
-                <p className="pt-1.5 sm:pt-2">Zagłoby 17, 64-100 Leszno</p>
-                <p>woj. wielkopolskie</p>
-                <p className="pt-1.5 text-foreground/70">Realizuję zlecenia na terenie całej Polski</p>
-              </div>
+            <div className="space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-muted-foreground">
+              <p className="font-semibold text-foreground">Marcin Pińkowski Usługi Budowlane</p>
+              <p>NIP: 6931838292</p>
+              <p>REGON: 302245156</p>
+              <p className="pt-1.5 sm:pt-2">Zagłoby 17, 64-100 Leszno</p>
+              <p>woj. wielkopolskie</p>
+              <p className="pt-1.5 text-foreground/70">Realizuję zlecenia na terenie całej Polski</p>
             </div>
           </div>
         </div>

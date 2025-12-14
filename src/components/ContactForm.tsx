@@ -8,10 +8,10 @@ const ContactForm = () => {
   return (
     <div className="bg-card rounded-xl p-5 sm:p-6 md:p-8 border border-border/50">
       <h3 className="font-bold mb-2">
-        Skontaktuj się ze mną
+        Masz pytania? Skontaktuj się
       </h3>
       <p className="text-muted-foreground mb-5 sm:mb-6 text-sm sm:text-base">
-        Wybierz wygodną formę kontaktu – odpowiem najszybciej jak to możliwe, zwykle tego samego dnia.
+        Wybierz wygodną formę kontaktu – chętnie odpowiem na pytania i&nbsp;doradzę. Zwykle odpisuję tego samego dnia.
       </p>
 
       <div className="space-y-3">

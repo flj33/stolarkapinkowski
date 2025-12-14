@@ -2,9 +2,9 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Checkbox } from "@/components/ui/checkbox";
+
 import { Label } from "@/components/ui/label";
-import { Send, CheckCircle } from "lucide-react";
+import { Send, CheckCircle, Phone } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
 
 const ContactForm = () => {
@@ -153,39 +153,53 @@ const ContactForm = () => {
         </div>
 
         <div className="flex items-start gap-3 py-2">
-          <Checkbox
-            id="consent"
-            checked={formData.consent}
-            onCheckedChange={(checked) => 
-              setFormData(prev => ({ ...prev, consent: checked as boolean }))
-            }
-            className="mt-1 h-5 w-5 flex-shrink-0"
-          />
+          <div className="mt-1 h-5 w-5 flex-shrink-0">
+            <input
+              type="checkbox"
+              id="consent"
+              checked={formData.consent}
+              onChange={(e) => 
+                setFormData(prev => ({ ...prev, consent: e.target.checked }))
+              }
+              className="h-5 w-5 rounded-sm border border-primary accent-primary cursor-pointer"
+            />
+          </div>
           <Label htmlFor="consent" className="text-xs sm:text-sm text-muted-foreground leading-relaxed cursor-pointer font-normal">
             Wyrażam zgodę na przetwarzanie moich danych osobowych w&nbsp;celu przygotowania odpowiedzi na moje zapytanie. 
             Dane nie będą udostępniane osobom trzecim.
           </Label>
         </div>
 
-        <Button 
-          type="submit" 
-          size="lg"
-          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold touch-target h-14"
-          disabled={isSubmitting}
-        >
-          {isSubmitting ? (
-            "Wysyłanie..."
-          ) : (
-            <>
-              <Send className="mr-2 h-5 w-5" />
-              Wyślij zapytanie o&nbsp;wycenę
-            </>
-          )}
-        </Button>
+        <div className="space-y-3">
+          <Button 
+            type="submit" 
+            size="lg"
+            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold touch-target h-14"
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? (
+              "Wysyłanie..."
+            ) : (
+              <>
+                <Send className="mr-2 h-5 w-5" />
+                Wyślij zapytanie o&nbsp;wycenę
+              </>
+            )}
+          </Button>
 
-        <p className="text-xs text-center text-muted-foreground">
-          Wolisz zadzwonić? <a href="tel:+48697277724" className="text-primary font-semibold hover:underline">697&nbsp;277&nbsp;724</a>
-        </p>
+          <Button 
+            type="button"
+            variant="outline"
+            size="lg"
+            className="w-full font-semibold touch-target h-14"
+            asChild
+          >
+            <a href="tel:+48697277724">
+              <Phone className="mr-2 h-5 w-5" />
+              Zadzwoń: 697&nbsp;277&nbsp;724
+            </a>
+          </Button>
+        </div>
       </form>
     </div>
   );

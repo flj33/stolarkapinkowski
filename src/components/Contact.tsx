@@ -79,21 +79,18 @@ const Contact = () => {
           <div className="space-y-4 sm:space-y-6">
             <div className="bg-primary/5 rounded-xl p-5 sm:p-6 md:p-8 border border-primary/20">
               <h3 className="font-bold mb-3 sm:mb-4">
-                Wolisz zadzwonić?
+                Masz pytania?
               </h3>
               <p className="text-muted-foreground mb-5 sm:mb-6 leading-relaxed text-sm sm:text-base">
-                Możesz też zadzwonić – porozmawiamy o&nbsp;projekcie i&nbsp;ustalimy szczegóły.
+                Jeśli wolisz porozmawiać, zadzwoń – chętnie odpowiem na pytania i&nbsp;doradzę.
               </p>
-              <Button 
-                size="lg" 
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold touch-target"
-                asChild
+              <a 
+                href="tel:+48697277724"
+                className="inline-flex items-center text-primary font-semibold hover:underline text-base sm:text-lg"
               >
-                <a href="tel:+48697277724">
-                  <Phone className="mr-2 h-5 w-5" />
-                  697&nbsp;277&nbsp;724
-                </a>
-              </Button>
+                <Phone className="mr-2 h-5 w-5" />
+                697&nbsp;277&nbsp;724
+              </a>
             </div>
 
             <div className="bg-secondary/50 rounded-xl p-5 sm:p-6">

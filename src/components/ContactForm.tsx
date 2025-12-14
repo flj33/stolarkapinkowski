@@ -162,7 +162,7 @@ const ContactForm = () => {
             className="mt-0.5"
           />
           <Label htmlFor="consent" className="text-xs sm:text-sm text-muted-foreground leading-relaxed cursor-pointer font-normal">
-            Wyrażam zgodę na przetwarzanie moich danych osobowych w&nbsp;celu odpowiedzi na zapytanie. 
+            Wyrażam zgodę na przetwarzanie moich danych osobowych w&nbsp;celu przygotowania odpowiedzi na moje zapytanie. 
             Dane nie będą udostępniane osobom trzecim.
           </Label>
         </div>

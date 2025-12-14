@@ -1,0 +1,111 @@
+import { useState, useEffect } from "react";
+import { Menu, X, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
+
+const navLinks = [
+  { href: "#uslugi", label: "Usługi" },
+  { href: "#galeria", label: "Galeria" },
+  { href: "#o-nas", label: "O nas" },
+  { href: "#kontakt", label: "Kontakt" },
+];
+
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  return (
+    <header
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        isScrolled
+          ? "bg-background/95 backdrop-blur-md shadow-sm border-b border-border/50"
+          : "bg-transparent"
+      }`}
+    >
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-between h-16 md:h-20">
+          <a href="#" className="flex items-center gap-2">
+            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
+              <span className="text-primary-foreground font-bold text-xl">S</span>
+            </div>
+            <span className={`font-bold text-lg ${isScrolled ? "text-foreground" : "text-primary-foreground"}`}>
+              Stolarka-Montaż
+            </span>
+          </a>
+
+          <nav className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                className={`text-sm font-medium transition-colors hover:text-primary ${
+                  isScrolled ? "text-foreground" : "text-primary-foreground"
+                }`}
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          <div className="hidden md:flex items-center gap-4">
+            <Button
+              size="sm"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground"
+              asChild
+            >
+              <a href="#kontakt">
+                <Phone className="mr-2 h-4 w-4" />
+                Zadzwoń
+              </a>
+            </Button>
+          </div>
+
+          <button
+            className="md:hidden p-2"
+            onClick={() => setIsMenuOpen(!isMenuOpen)}
+          >
+            {isMenuOpen ? (
+              <X className={`h-6 w-6 ${isScrolled ? "text-foreground" : "text-primary-foreground"}`} />
+            ) : (
+              <Menu className={`h-6 w-6 ${isScrolled ? "text-foreground" : "text-primary-foreground"}`} />
+            )}
+          </button>
+        </div>
+
+        {isMenuOpen && (
+          <div className="md:hidden bg-background border-t border-border">
+            <nav className="flex flex-col py-4">
+              {navLinks.map((link) => (
+                <a
+                  key={link.href}
+                  href={link.href}
+                  className="px-4 py-3 text-foreground hover:bg-secondary transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {link.label}
+                </a>
+              ))}
+              <div className="px-4 pt-4">
+                <Button className="w-full bg-primary hover:bg-primary/90 text-primary-foreground" asChild>
+                  <a href="#kontakt">
+                    <Phone className="mr-2 h-4 w-4" />
+                    Zadzwoń teraz
+                  </a>
+                </Button>
+              </div>
+            </nav>
+          </div>
+        )}
+      </div>
+    </header>
+  );
+};
+
+export default Header;

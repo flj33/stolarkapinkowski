@@ -1,4 +1,5 @@
-import { Award, Clock, Users, CheckCircle, Phone, Mail, MapPin } from "lucide-react";
+import { Award, Clock, Users, CheckCircle, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const stats = [{
   icon: Clock,
@@ -24,22 +25,27 @@ const About = () => {
       <div className="container mx-auto px-4">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           <div>
-            <span className="text-primary font-semibold tracking-wide">O mnie</span>
+            <span className="text-primary font-semibold tracking-wide">Dlaczego ja?</span>
             <h2 className="text-3xl md:text-4xl font-bold mt-2 mb-6 tracking-tight">
-              Doświadczenie i Profesjonalizm
+              Marcin Pińkowski – fachowiec, któremu możesz zaufać
             </h2>
             
-            <p className="text-muted-foreground mb-6 leading-relaxed">
-              Nazywam się <strong className="text-foreground">Marcin Pińkowski</strong> i posiadam 
-              <strong className="text-foreground"> ponad 25-letnie doświadczenie</strong> w branży 
-              stolarskiej i montażowej. Gwarantuję solidność, estetykę oraz zgodność 
-              z obowiązującymi normami budowlanymi.
+            <p className="text-muted-foreground mb-6 leading-relaxed text-lg">
+              Od ponad <strong className="text-foreground">25 lat</strong> zajmuję się montażem podłóg, drzwi i tarasów 
+              w <strong className="text-foreground">Lesznie i okolicach</strong>. Wykonałem już ponad 1000 projektów 
+              dla klientów indywidualnych i firm. Wiem, że liczy się terminowość, czystość i solidne wykonanie 
+              – dlatego na tym się skupiam.
             </p>
 
             <div className="space-y-4 mb-8">
-              {["Układanie podłóg drewnianych, paneli i winylowych", "Montaż drzwi wewnętrznych i zewnętrznych", "Budowa tarasów i podestów drewnianych", "Montaż okien, rolet i osłon przeciwsłonecznych"].map(item => (
-                <div key={item} className="flex items-center gap-3">
-                  <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0">
+              {[
+                "Pracuję sam lub z zaufaną ekipą – wiem, kto odpowiada za efekt",
+                "Używam sprawdzonych materiałów – doradzę, co wybrać",
+                "Sprzątam po sobie – zostawiam gotowe wnętrze",
+                "Działam terminowo – umawiamy się i dotrzymuję słowa"
+              ].map(item => (
+                <div key={item} className="flex items-start gap-3">
+                  <div className="w-6 h-6 rounded-full bg-primary/20 flex items-center justify-center flex-shrink-0 mt-0.5">
                     <CheckCircle className="w-4 h-4 text-primary" />
                   </div>
                   <span className="text-foreground">{item}</span>
@@ -48,25 +54,20 @@ const About = () => {
             </div>
 
             <div className="bg-card p-6 rounded-xl border border-border/50">
-              <h3 className="font-semibold text-foreground mb-4">Dane kontaktowe</h3>
-              <div className="space-y-3">
-                <div className="flex items-center gap-3">
-                  <Phone className="w-5 h-5 text-primary flex-shrink-0" />
-                  <a href="tel:+48697277724" className="text-muted-foreground hover:text-primary transition-colors">
-                    697 277 724
-                  </a>
-                </div>
-                <div className="flex items-center gap-3">
-                  <Mail className="w-5 h-5 text-primary flex-shrink-0" />
-                  <a href="mailto:marcinpinkowski77@gmail.com" className="text-muted-foreground hover:text-primary transition-colors break-all">
-                    marcinpinkowski77@gmail.com
-                  </a>
-                </div>
-                <div className="flex items-center gap-3">
-                  <MapPin className="w-5 h-5 text-primary flex-shrink-0" />
-                  <span className="text-muted-foreground">Zagłoby 17, 64-100 Leszno</span>
-                </div>
-              </div>
+              <h3 className="font-semibold text-foreground mb-3">Zadzwoń i porozmawiajmy o Twoim projekcie</h3>
+              <p className="text-muted-foreground text-sm mb-4">
+                Bezpłatna wycena, doradztwo w wyborze materiałów, termin realizacji – wszystko ustalimy telefonicznie.
+              </p>
+              <Button 
+                size="lg" 
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold w-full sm:w-auto"
+                asChild
+              >
+                <a href="tel:+48697277724">
+                  <Phone className="mr-2 h-5 w-5" />
+                  Zadzwoń: 697 277 724
+                </a>
+              </Button>
             </div>
           </div>
 

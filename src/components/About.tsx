@@ -1,4 +1,5 @@
 import { Award, Clock, Users, CheckCircle } from "lucide-react";
+import useScrollAnimation from "@/hooks/useScrollAnimation";
 
 const stats = [{
   icon: Clock,
@@ -19,12 +20,20 @@ const stats = [{
 }];
 
 const About = () => {
+  const { ref: contentRef, isVisible: contentVisible } = useScrollAnimation();
+  const { ref: statsRef, isVisible: statsVisible } = useScrollAnimation();
+
   return (
     <section id="o-nas" className="section-padding bg-secondary/30">
       <div className="container mx-auto px-5 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
-          <div>
-            <span className="text-primary font-semibold tracking-wide text-sm">Dlaczego ja?</span>
+          <div 
+            ref={contentRef}
+            className={`transition-all duration-700 ${
+              contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
+            <span className="text-primary font-semibold tracking-wide text-sm uppercase">Dlaczego ja?</span>
             <h2 className="mt-2 mb-5 sm:mb-6">
               Marcin Pińkowski – fachowiec, któremu możesz zaufać
             </h2>
@@ -67,9 +76,18 @@ const About = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 lg:gap-6">
-            {stats.map(stat => (
-              <div key={stat.label} className="bg-card p-4 sm:p-6 rounded-xl border border-border/50 text-center hover:shadow-lg transition-shadow">
+          <div 
+            ref={statsRef}
+            className={`grid grid-cols-2 gap-3 sm:gap-4 lg:gap-6 transition-all duration-700 delay-200 ${
+              statsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+            }`}
+          >
+            {stats.map((stat, index) => (
+              <div 
+                key={stat.label} 
+                className="bg-card p-4 sm:p-6 rounded-xl border border-border/50 text-center hover:shadow-lg transition-shadow"
+                style={{ transitionDelay: `${200 + index * 100}ms` }}
+              >
                 <div className="w-10 h-10 sm:w-12 sm:h-12 bg-primary/10 rounded-lg flex items-center justify-center mx-auto mb-3 sm:mb-4">
                   <stat.icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" />
                 </div>

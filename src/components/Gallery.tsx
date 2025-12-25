@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import useScrollAnimation from "@/hooks/useScrollAnimation";
 
 import doorFrame from "@/assets/door-frame.jpg";
 import deckWet from "@/assets/deck-wet.jpg";
@@ -26,24 +27,37 @@ const galleryImages = [
 
 const Gallery = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
+  const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation();
+  const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
 
   return (
     <section id="galeria" className="section-padding bg-background">
       <div className="container mx-auto px-5 sm:px-6">
-        <header className="text-center mb-10 sm:mb-16">
-          <span className="text-primary font-semibold tracking-wide text-sm">
+        <header 
+          ref={headerRef}
+          className={`text-center mb-10 sm:mb-16 transition-all duration-700 ${
+            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <span className="text-primary font-semibold tracking-wide text-sm uppercase">
             Galeria realizacji
           </span>
           <h2 className="mt-2 mb-4">
             Zobacz, jak pracuję
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-base leading-relaxed">
             To nie stockowe zdjęcia – to moje realne projekty. Każdy wykonany z&nbsp;dbałością o&nbsp;szczegóły i&nbsp;zadowolenie klienta. 
             <strong className="text-foreground"> Twój projekt może być następny.</strong>
           </p>
         </header>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 md:gap-4">
+        <div 
+          ref={gridRef}
+          className={`grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 md:gap-4 transition-all duration-700 delay-200 ${
+            gridVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           {galleryImages.map((image, index) => (
             <div
               key={index}
@@ -74,8 +88,13 @@ const Gallery = () => {
           ))}
         </div>
 
-        <div className="mt-10 sm:mt-12 text-center">
-          <p className="text-muted-foreground mb-4 text-sm sm:text-base">
+        <div 
+          ref={ctaRef}
+          className={`mt-10 sm:mt-12 text-center transition-all duration-700 delay-300 ${
+            ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <p className="text-muted-foreground mb-4 text-base leading-relaxed">
             Podoba Ci się to, co widzisz? Twój projekt może wyglądać równie dobrze.
           </p>
           <Button 

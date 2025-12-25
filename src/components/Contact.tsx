@@ -46,7 +46,7 @@ const Contact = () => {
       <div className="container mx-auto px-5 sm:px-6">
         <header 
           ref={headerRef}
-          className={`text-center mb-10 sm:mb-16 transition-all duration-700 ${
+          className={`text-center mb-6 sm:mb-8 transition-all duration-700 ${
             headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
@@ -62,7 +62,7 @@ const Contact = () => {
 
         <div 
           ref={cardsRef}
-          className={`grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mb-10 sm:mb-12 transition-all duration-700 delay-200 ${
+          className={`grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-5 mb-6 sm:mb-8 transition-all duration-700 delay-200 ${
             cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
@@ -91,7 +91,7 @@ const Contact = () => {
 
         <div 
           ref={formRef}
-          className={`grid lg:grid-cols-2 gap-6 sm:gap-8 mb-10 sm:mb-12 transition-all duration-700 delay-300 ${
+          className={`grid lg:grid-cols-2 gap-5 sm:gap-6 mb-6 sm:mb-8 transition-all duration-700 delay-300 ${
             formVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
@@ -115,7 +115,7 @@ const Contact = () => {
 
         <div 
           ref={ctaRef}
-          className={`bg-card rounded-2xl p-6 sm:p-8 md:p-12 border border-border/50 text-center transition-all duration-700 delay-400 ${
+          className={`bg-card rounded-2xl p-5 sm:p-6 md:p-8 border border-border/50 text-center transition-all duration-700 delay-400 ${
             ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >

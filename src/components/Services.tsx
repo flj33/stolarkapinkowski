@@ -40,7 +40,7 @@ const Services = () => {
       <div className="container mx-auto px-5 sm:px-6">
         <header 
           ref={headerRef}
-          className={`text-center mb-12 sm:mb-16 transition-all duration-700 ${
+          className={`text-center mb-8 sm:mb-10 transition-all duration-700 ${
             headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
@@ -93,7 +93,7 @@ const Services = () => {
 
         <div 
           ref={ctaRef}
-          className={`mt-10 sm:mt-12 text-center bg-card rounded-xl p-6 sm:p-8 border border-border/50 transition-all duration-700 delay-300 ${
+          className={`mt-8 sm:mt-10 text-center bg-card rounded-xl p-5 sm:p-6 border border-border/50 transition-all duration-700 delay-300 ${
             ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >

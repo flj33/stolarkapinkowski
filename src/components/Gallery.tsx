@@ -52,7 +52,7 @@ const Gallery = () => {
       <div className="container mx-auto px-5 sm:px-6">
         <header 
           ref={headerRef}
-          className={`text-center mb-10 sm:mb-16 transition-all duration-700 ${
+          className={`text-center mb-6 sm:mb-8 transition-all duration-700 ${
             headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >
@@ -103,7 +103,7 @@ const Gallery = () => {
 
         <div 
           ref={ctaRef}
-          className={`mt-10 sm:mt-12 text-center transition-all duration-700 delay-300 ${
+          className={`mt-6 sm:mt-8 text-center transition-all duration-700 delay-300 ${
             ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
           }`}
         >

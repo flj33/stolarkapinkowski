@@ -80,7 +80,7 @@ const Pricing = () => {
     <section id="cennik" className="section-padding bg-secondary/30">
       <div className="container mx-auto px-5 sm:px-6">
         {/* Header */}
-        <header className="text-center mb-10 sm:mb-12">
+        <header className="text-center mb-6 sm:mb-8">
           <span className="text-primary font-semibold tracking-wide text-sm">Cennik usług</span>
           <h2 className="mt-2 mb-4">
             Ile kosztuje montaż?
@@ -92,7 +92,7 @@ const Pricing = () => {
         </header>
 
         {/* Pricing Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-10 sm:mb-12">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5 mb-6 sm:mb-8">
           {pricingCategories.map((category) => (
             <Card key={category.title} className="border-border/50 bg-card hover:shadow-lg transition-shadow">
               <CardHeader className="pb-3 sm:pb-4">
@@ -116,7 +116,7 @@ const Pricing = () => {
         </div>
 
         {/* Measurement Info */}
-        <div className="bg-card rounded-xl p-5 sm:p-6 border border-border/50 mb-6 sm:mb-8">
+        <div className="bg-card rounded-xl p-4 sm:p-5 border border-border/50 mb-5 sm:mb-6">
           <h3 className="text-lg font-bold mb-3 sm:mb-4">Pomiar i&nbsp;wycena</h3>
           <div className="grid sm:grid-cols-2 gap-3 sm:gap-4 text-sm">
             <div className="flex items-start gap-2.5">
@@ -134,7 +134,7 @@ const Pricing = () => {
         </div>
 
         {/* CTA Block */}
-        <div className="bg-card rounded-xl p-6 sm:p-8 border border-border/50 text-center">
+        <div className="bg-card rounded-xl p-5 sm:p-6 border border-border/50 text-center">
           <h3 className="mb-3">
             Potrzebujesz dokładnej wyceny?
           </h3>

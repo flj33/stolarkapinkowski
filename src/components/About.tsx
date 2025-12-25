@@ -26,7 +26,7 @@ const About = () => {
   return (
     <section id="o-nas" className="section-padding bg-secondary/30">
       <div className="container mx-auto px-5 sm:px-6">
-        <div className="grid lg:grid-cols-2 gap-10 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-10 items-center">
           <div 
             ref={contentRef}
             className={`transition-all duration-700 ${

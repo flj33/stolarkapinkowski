@@ -144,7 +144,7 @@ const Contact = () => {
             >
               <a href="tel:+48697277724">
                 <Phone className="mr-2 h-5 w-5" />
-                Zadzwoń: 697&nbsp;277&nbsp;724
+                Zadzwoń: <span className="text-lg font-bold">697&nbsp;277&nbsp;724</span>
               </a>
             </Button>
           </div>

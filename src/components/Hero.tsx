@@ -38,8 +38,8 @@ const Hero = () => {
               Poproś o&nbsp;wycenę
             </a>
           </Button>
-          <p className="text-primary-foreground/80 text-sm">
-            Wolisz zadzwonić? <a href="tel:+48697277724" className="text-primary-foreground font-semibold hover:underline">697&nbsp;277&nbsp;724</a>
+          <p className="text-primary-foreground/80 text-base sm:text-lg">
+            Wolisz zadzwonić? <a href="tel:+48697277724" className="text-primary-foreground font-bold hover:underline text-lg sm:text-xl">697&nbsp;277&nbsp;724</a>
           </p>
         </div>
         

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
+import { ChevronLeft, ChevronRight, X } from "lucide-react";
 import useScrollAnimation from "@/hooks/useScrollAnimation";
 
 import doorFrame from "@/assets/door-frame.jpg";
@@ -26,10 +27,25 @@ const galleryImages = [
 ];
 
 const Gallery = () => {
-  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
   const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
   const { ref: gridRef, isVisible: gridVisible } = useScrollAnimation();
   const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
+
+  const openImage = (index: number) => setSelectedIndex(index);
+  const closeImage = () => setSelectedIndex(null);
+  
+  const goToPrev = () => {
+    if (selectedIndex !== null) {
+      setSelectedIndex(selectedIndex === 0 ? galleryImages.length - 1 : selectedIndex - 1);
+    }
+  };
+  
+  const goToNext = () => {
+    if (selectedIndex !== null) {
+      setSelectedIndex(selectedIndex === galleryImages.length - 1 ? 0 : selectedIndex + 1);
+    }
+  };
 
   return (
     <section id="galeria" className="section-padding bg-background">
@@ -64,7 +80,7 @@ const Gallery = () => {
               className={`relative overflow-hidden rounded-lg cursor-pointer group ${
                 index === 0 ? "col-span-2 row-span-2" : ""
               }`}
-              onClick={() => setSelectedImage(image.src)}
+              onClick={() => openImage(index)}
             >
               <div className="w-full h-full aspect-square">
                 <img
@@ -109,14 +125,56 @@ const Gallery = () => {
         </div>
       </div>
 
-      <Dialog open={!!selectedImage} onOpenChange={() => setSelectedImage(null)}>
-        <DialogContent className="max-w-4xl p-2 sm:p-0 overflow-hidden bg-transparent border-none">
-          {selectedImage && (
-            <img
-              src={selectedImage}
-              alt="Powiększone zdjęcie realizacji"
-              className="w-full h-auto rounded-lg"
-            />
+      <Dialog open={selectedIndex !== null} onOpenChange={closeImage}>
+        <DialogContent className="max-w-5xl p-0 overflow-hidden bg-black/95 border-none [&>button]:hidden">
+          {selectedIndex !== null && (
+            <div className="relative">
+              {/* Close button */}
+              <button
+                onClick={closeImage}
+                className="absolute top-4 right-4 z-50 w-10 h-10 flex items-center justify-center rounded-full bg-black/50 hover:bg-black/70 transition-colors"
+                aria-label="Zamknij"
+              >
+                <X className="h-6 w-6 text-white" />
+              </button>
+              
+              {/* Navigation arrows */}
+              <button
+                onClick={(e) => { e.stopPropagation(); goToPrev(); }}
+                className="absolute left-2 sm:left-4 top-1/2 -translate-y-1/2 z-50 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-black/50 hover:bg-black/70 transition-colors"
+                aria-label="Poprzednie zdjęcie"
+              >
+                <ChevronLeft className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
+              </button>
+              
+              <button
+                onClick={(e) => { e.stopPropagation(); goToNext(); }}
+                className="absolute right-2 sm:right-4 top-1/2 -translate-y-1/2 z-50 w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center rounded-full bg-black/50 hover:bg-black/70 transition-colors"
+                aria-label="Następne zdjęcie"
+              >
+                <ChevronRight className="h-6 w-6 sm:h-8 sm:w-8 text-white" />
+              </button>
+              
+              {/* Image */}
+              <img
+                src={galleryImages[selectedIndex].src}
+                alt={galleryImages[selectedIndex].alt}
+                className="w-full h-auto max-h-[85vh] object-contain"
+              />
+              
+              {/* Caption */}
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 sm:p-6">
+                <span className="text-xs font-semibold text-white bg-primary/80 px-2 py-1 rounded">
+                  {galleryImages[selectedIndex].category}
+                </span>
+                <p className="text-white font-medium mt-2 text-sm sm:text-base">
+                  {galleryImages[selectedIndex].alt}
+                </p>
+                <p className="text-white/60 text-xs mt-1">
+                  {selectedIndex + 1} / {galleryImages.length}
+                </p>
+              </div>
+            </div>
           )}
         </DialogContent>
       </Dialog>

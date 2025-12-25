@@ -32,9 +32,9 @@ const ContactForm = () => {
           className="w-full font-semibold touch-target h-14"
           asChild
         >
-          <a href="tel:+48697277724">
+        <a href="tel:+48697277724">
             <Phone className="mr-2 h-5 w-5" />
-            Zadzwoń: 697&nbsp;277&nbsp;724
+            Zadzwoń: <span className="text-lg">697&nbsp;277&nbsp;724</span>
           </a>
         </Button>
 

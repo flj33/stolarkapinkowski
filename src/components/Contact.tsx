@@ -2,6 +2,7 @@ import { Phone, Mail, Clock, MapPin, Building2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import ContactForm from "./ContactForm";
+import useScrollAnimation from "@/hooks/useScrollAnimation";
 
 const contactInfo = [
   {
@@ -35,21 +36,36 @@ const contactInfo = [
 ];
 
 const Contact = () => {
+  const { ref: headerRef, isVisible: headerVisible } = useScrollAnimation();
+  const { ref: cardsRef, isVisible: cardsVisible } = useScrollAnimation();
+  const { ref: formRef, isVisible: formVisible } = useScrollAnimation();
+  const { ref: ctaRef, isVisible: ctaVisible } = useScrollAnimation();
+
   return (
     <section id="kontakt" className="section-padding bg-background">
       <div className="container mx-auto px-5 sm:px-6">
-        <header className="text-center mb-10 sm:mb-16">
-          <span className="text-primary font-semibold tracking-wide text-sm">Kontakt</span>
+        <header 
+          ref={headerRef}
+          className={`text-center mb-10 sm:mb-16 transition-all duration-700 ${
+            headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
+          <span className="text-primary font-semibold tracking-wide text-sm uppercase">Kontakt</span>
           <h2 className="mt-2 mb-4">
             Zadzwoń lub napisz – wycena gratis
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-muted-foreground max-w-2xl mx-auto text-base leading-relaxed">
             Potrzebujesz podłogi, drzwi lub tarasu? Opisz projekt, a&nbsp;ja przygotuję bezpłatną wycenę. 
             <strong className="text-foreground"> Bez zobowiązań – decyzja należy do&nbsp;Ciebie.</strong>
           </p>
         </header>
 
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mb-10 sm:mb-12">
+        <div 
+          ref={cardsRef}
+          className={`grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 lg:gap-6 mb-10 sm:mb-12 transition-all duration-700 delay-200 ${
+            cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           {contactInfo.map((info) => (
             <Card key={info.title} className="text-center hover:shadow-lg transition-shadow border-border/50">
               <CardContent className="p-4 sm:pt-6 sm:p-6">
@@ -73,7 +89,12 @@ const Contact = () => {
           ))}
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-6 sm:gap-8 mb-10 sm:mb-12">
+        <div 
+          ref={formRef}
+          className={`grid lg:grid-cols-2 gap-6 sm:gap-8 mb-10 sm:mb-12 transition-all duration-700 delay-300 ${
+            formVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           <ContactForm />
           
           <div className="bg-secondary/50 rounded-xl p-5 sm:p-6">
@@ -92,11 +113,16 @@ const Contact = () => {
           </div>
         </div>
 
-        <div className="bg-card rounded-2xl p-6 sm:p-8 md:p-12 border border-border/50 text-center">
+        <div 
+          ref={ctaRef}
+          className={`bg-card rounded-2xl p-6 sm:p-8 md:p-12 border border-border/50 text-center transition-all duration-700 delay-400 ${
+            ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
+          }`}
+        >
           <h3 className="mb-3 sm:mb-4">
             Gotowy na nową podłogę, drzwi lub taras?
           </h3>
-          <p className="text-muted-foreground mb-5 sm:mb-6 max-w-xl mx-auto text-sm sm:text-base">
+          <p className="text-muted-foreground mb-5 sm:mb-6 max-w-xl mx-auto text-base leading-relaxed">
             Skontaktuj się – przygotuję bezpłatną wycenę.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">

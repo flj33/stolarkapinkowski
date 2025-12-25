@@ -15,15 +15,15 @@ import gardenDeck from "@/assets/garden-deck.jpg";
 import commercialFloor from "@/assets/commercial-floor.jpg";
 
 const galleryImages = [
-  { src: gardenDeck, alt: "Taras drewniany przy domu jednorodzinnym – Leszno", category: "Tarasy" },
-  { src: deckSteps, alt: "Schody tarasowe z drewna egzotycznego", category: "Tarasy" },
-  { src: doorFrame, alt: "Montaż drzwi wewnętrznych z ościeżnicą", category: "Drzwi" },
-  { src: roofDeck, alt: "Taras na dachu płaskim – deski kompozytowe", category: "Tarasy" },
-  { src: commercialFloor, alt: "Podłoga drewniana w salonie – parkiet dębowy", category: "Podłogi" },
-  { src: deckWet, alt: "Impregnowany taras – odporny na deszcz i słońce", category: "Tarasy" },
-  { src: balconyDeck, alt: "Deska tarasowa na balkonie w bloku", category: "Tarasy" },
-  { src: deckAerial, alt: "Taras wielopoziomowy z schodami zewnętrznymi", category: "Tarasy" },
-  { src: deckTable, alt: "Przestronny taras wypoczynkowy – realizacja kompletna", category: "Tarasy" },
+  { src: gardenDeck, alt: "Realizacja tarasu drewnianego", category: "Tarasy" },
+  { src: deckSteps, alt: "Schody i wykończenia zewnętrzne", category: "Schody" },
+  { src: doorFrame, alt: "Montaż drzwi z wykończeniem", category: "Drzwi" },
+  { src: roofDeck, alt: "Taras kompozytowy", category: "Tarasy" },
+  { src: commercialFloor, alt: "Podłoga drewniana", category: "Podłogi" },
+  { src: deckWet, alt: "Taras impregnowany", category: "Tarasy" },
+  { src: balconyDeck, alt: "Deska tarasowa", category: "Balkony" },
+  { src: deckAerial, alt: "Konstrukcja tarasowa", category: "Tarasy" },
+  { src: deckTable, alt: "Taras wypoczynkowy", category: "Tarasy" },
 ];
 
 const Gallery = () => {
@@ -92,12 +92,9 @@ const Gallery = () => {
               </div>
               <div className="absolute inset-0 bg-foreground/0 group-hover:bg-foreground/40 transition-colors duration-300 flex items-end">
                 <div className="p-3 sm:p-4 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <span className="text-xs font-semibold text-primary-foreground bg-primary/80 px-2 py-1 rounded">
+                  <span className="text-sm font-semibold text-primary-foreground bg-primary/80 px-3 py-1.5 rounded">
                     {image.category}
                   </span>
-                  <p className="text-primary-foreground font-medium mt-2 text-xs sm:text-sm md:text-base line-clamp-2">
-                    {image.alt}
-                  </p>
                 </div>
               </div>
             </div>
@@ -164,13 +161,10 @@ const Gallery = () => {
               
               {/* Caption */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-4 sm:p-6">
-                <span className="text-xs font-semibold text-white bg-primary/80 px-2 py-1 rounded">
+                <span className="text-sm font-semibold text-white bg-primary/80 px-3 py-1.5 rounded">
                   {galleryImages[selectedIndex].category}
                 </span>
-                <p className="text-white font-medium mt-2 text-sm sm:text-base">
-                  {galleryImages[selectedIndex].alt}
-                </p>
-                <p className="text-white/60 text-xs mt-1">
+                <p className="text-white/60 text-sm mt-2">
                   {selectedIndex + 1} / {galleryImages.length}
                 </p>
               </div>

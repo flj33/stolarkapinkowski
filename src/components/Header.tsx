@@ -81,7 +81,7 @@ const Header = () => {
             >
               <a href="tel:+48697277724">
                 <Phone className="mr-2 h-4 w-4" />
-                <span className="hidden xl:inline">697&nbsp;277&nbsp;724</span>
+                <span className="hidden xl:inline text-lg font-bold">697&nbsp;277&nbsp;724</span>
                 <span className="xl:hidden">Zadzwoń</span>
               </a>
             </Button>
@@ -124,7 +124,7 @@ const Header = () => {
                 >
                   <a href="tel:+48697277724" onClick={() => setIsMenuOpen(false)}>
                     <Phone className="mr-2 h-5 w-5" />
-                    Zadzwoń: 697&nbsp;277&nbsp;724
+                    Zadzwoń: <span className="text-lg font-bold">697&nbsp;277&nbsp;724</span>
                   </a>
                 </Button>
               </div>

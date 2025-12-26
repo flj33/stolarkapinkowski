@@ -23,17 +23,6 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => {
-    if (isMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isMenuOpen]);
-
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
     setIsMenuOpen(false);
@@ -46,22 +35,23 @@ const Header = () => {
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
+        isScrolled || isMenuOpen
           ? "bg-background/95 backdrop-blur-md shadow-sm border-b border-border/50"
           : "bg-transparent"
       }`}
     >
       <div className="container mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-16 sm:h-20">
+          {/* Logo */}
           <a href="#" className="flex items-center gap-2 sm:gap-3">
             <img 
               src={logo} 
               alt="Montaż Stolarki Budowlanej" 
               className={`h-10 sm:h-12 md:h-14 w-auto transition-all ${
-                isScrolled ? "" : "brightness-0 invert"
+                isScrolled || isMenuOpen ? "" : "brightness-0 invert"
               }`}
             />
-            <div className={`hidden xs:block ${isScrolled ? "text-foreground" : "text-primary-foreground"}`}>
+            <div className={`hidden xs:block ${isScrolled || isMenuOpen ? "text-foreground" : "text-primary-foreground"}`}>
               <span className="font-bold text-sm sm:text-base block leading-tight">Marcin Pińkowski</span>
               <span className="text-xs opacity-80 hidden sm:block">Usługi Budowlane</span>
             </div>
@@ -87,7 +77,7 @@ const Header = () => {
           <div className="hidden lg:flex items-center">
             <Button
               size="default"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold touch-target px-5"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-5"
               asChild
             >
               <a href="tel:+48697277724">
@@ -99,77 +89,38 @@ const Header = () => {
 
           {/* Mobile Hamburger Button */}
           <button
-            className={`lg:hidden p-2.5 -mr-2 touch-target flex items-center justify-center rounded-md transition-colors ${
-              isScrolled ? "hover:bg-secondary" : "hover:bg-primary-foreground/10"
+            className={`lg:hidden p-2 rounded-md transition-colors ${
+              isScrolled || isMenuOpen ? "text-foreground hover:bg-secondary" : "text-primary-foreground hover:bg-primary-foreground/10"
             }`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? "Zamknij menu" : "Otwórz menu"}
           >
-            <Menu className={`h-6 w-6 ${isScrolled ? "text-foreground" : "text-primary-foreground"}`} />
+            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
-      </div>
 
-      {/* Mobile Full-Screen Overlay Menu */}
-      <div
-        className={`lg:hidden fixed inset-0 z-50 transition-all duration-300 ${
-          isMenuOpen ? "visible" : "invisible"
-        }`}
-      >
-        {/* Backdrop */}
-        <div
-          className={`absolute inset-0 bg-foreground/50 transition-opacity duration-300 ${
-            isMenuOpen ? "opacity-100" : "opacity-0"
-          }`}
-          onClick={() => setIsMenuOpen(false)}
-        />
-
-        {/* Slide-in Panel */}
-        <div
-          className={`absolute top-0 right-0 h-full w-full max-w-sm bg-background shadow-xl transition-transform duration-300 ease-out ${
-            isMenuOpen ? "translate-x-0" : "translate-x-full"
-          }`}
-        >
-          {/* Close Button */}
-          <div className="flex items-center justify-between p-4 border-b border-border">
-            <span className="font-bold text-lg text-foreground">Menu</span>
-            <button
-              onClick={() => setIsMenuOpen(false)}
-              className="p-2 rounded-md hover:bg-secondary transition-colors"
-              aria-label="Zamknij menu"
-            >
-              <X className="h-6 w-6 text-foreground" />
-            </button>
-          </div>
-
-          {/* Navigation Links */}
-          <nav className="flex flex-col py-4">
+        {/* Mobile Dropdown Menu */}
+        {isMenuOpen && (
+          <nav className="lg:hidden border-t border-border/50 py-4">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
                 onClick={(e) => handleNavClick(e, link.href)}
-                className="px-6 py-4 text-foreground text-lg font-medium hover:bg-secondary transition-colors border-b border-border/30"
+                className="block py-3 px-2 text-foreground text-base font-medium hover:text-primary transition-colors"
               >
                 {link.label}
               </a>
             ))}
-          </nav>
-
-          {/* Phone Button */}
-          <div className="absolute bottom-0 left-0 right-0 p-5 border-t border-border bg-secondary/30">
-            <Button 
-              size="lg"
-              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold touch-target h-14" 
-              asChild
+            <a
+              href="tel:+48697277724"
+              className="flex items-center gap-2 py-3 px-2 text-primary font-semibold mt-2 border-t border-border/50 pt-4"
             >
-              <a href="tel:+48697277724" onClick={() => setIsMenuOpen(false)}>
-                <Phone className="mr-2 h-5 w-5" />
-                <span className="text-lg font-bold">697&nbsp;277&nbsp;724</span>
-              </a>
-            </Button>
-          </div>
-        </div>
+              <Phone className="h-4 w-4" />
+              697 277 724
+            </a>
+          </nav>
+        )}
       </div>
     </header>
   );

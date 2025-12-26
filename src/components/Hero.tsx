@@ -24,8 +24,9 @@ const Hero = () => {
         </h1>
         
         <p className="text-base sm:text-lg text-primary-foreground/90 max-w-xl mx-auto mb-8 leading-relaxed">
-          Szukasz sprawdzonego fachowca? Wykonuję kompleksowy montaż od&nbsp;A&nbsp;do&nbsp;Z: 
-          podłogi, drzwi, tarasy drewniane i&nbsp;więcej. Siedziba w&nbsp;Lesznie, realizacje w&nbsp;całym kraju.
+          Nazywam się Marcin Pińkowski i&nbsp;od ponad 25&nbsp;lat montuję podłogi, drzwi i&nbsp;tarasy dla klientów w&nbsp;Lesznie i&nbsp;w&nbsp;całej Polsce.
+          <br /><br />
+          Wykonuję kompleksowy montaż od&nbsp;A&nbsp;do&nbsp;Z – od&nbsp;pomiaru i&nbsp;doradztwa po gotowe, posprzątane wnętrze.
         </p>
         
         <div className="flex flex-col gap-4 justify-center items-center max-w-md sm:max-w-none mx-auto">

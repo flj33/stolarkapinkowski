@@ -47,7 +47,7 @@ const Header = () => {
             <img 
               src={logo} 
               alt="Montaż Stolarki Budowlanej" 
-              className={`h-10 sm:h-12 md:h-14 w-auto transition-all ${
+              className={`h-12 sm:h-14 md:h-16 w-auto transition-all ${
                 isScrolled || isMenuOpen ? "" : "brightness-0 invert"
               }`}
             />

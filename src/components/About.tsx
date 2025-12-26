@@ -39,9 +39,9 @@ const About = () => {
             </h2>
             
             <p className="text-muted-foreground mb-5 sm:mb-6 text-base sm:text-lg leading-relaxed">
-              Od ponad <strong className="text-foreground">25&nbsp;lat</strong> zajmuję się montażem podłóg, drzwi i&nbsp;tarasów. 
-              Siedziba mojej firmy mieści się w&nbsp;<strong className="text-foreground">Lesznie</strong>, ale realizuję projekty 
-              w&nbsp;całej Polsce. Wykonałem już ponad 1000&nbsp;projektów dla klientów indywidualnych i&nbsp;firm.
+              Od lat pomagam właścicielom domów i&nbsp;mieszkań w&nbsp;<strong className="text-foreground">Lesznie</strong> i&nbsp;całej Polsce w&nbsp;montażu podłóg, drzwi i&nbsp;tarasów.
+              <br /><br />
+              Na koncie mam ponad <strong className="text-foreground">1000&nbsp;realizacji</strong> dla klientów indywidualnych i&nbsp;firm.
             </p>
 
             <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">

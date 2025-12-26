@@ -34,8 +34,14 @@ const Hero = () => {
             className="w-full sm:w-auto bg-primary hover:bg-primary/90 text-primary-foreground px-8 py-6 text-base font-semibold touch-target"
             asChild
           >
-            <a href="#kontakt">
-              Poproś o&nbsp;wycenę
+            <a 
+              href="#uslugi"
+              onClick={(e) => {
+                e.preventDefault();
+                document.querySelector('#uslugi')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Sprawdź zakres usług
             </a>
           </Button>
           <p className="text-primary-foreground/80 text-base sm:text-lg">

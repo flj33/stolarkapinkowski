@@ -23,7 +23,6 @@ const Header = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Prevent body scroll when menu is open
   useEffect(() => {
     if (isMenuOpen) {
       document.body.style.overflow = 'hidden';
@@ -34,6 +33,15 @@ const Header = () => {
       document.body.style.overflow = '';
     };
   }, [isMenuOpen]);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setIsMenuOpen(false);
+    const target = document.querySelector(href);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <header
@@ -59,12 +67,14 @@ const Header = () => {
             </div>
           </a>
 
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
+          {/* Desktop Navigation */}
+          <nav className="hidden lg:flex items-center gap-8">
             {navLinks.map((link) => (
               <a
                 key={link.href}
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-primary py-2 ${
+                onClick={(e) => handleNavClick(e, link.href)}
+                className={`text-sm font-medium transition-all duration-200 py-2 hover:text-primary relative after:absolute after:bottom-0 after:left-0 after:w-0 after:h-0.5 after:bg-primary after:transition-all after:duration-200 hover:after:w-full ${
                   isScrolled ? "text-foreground" : "text-primary-foreground"
                 }`}
               >
@@ -73,64 +83,93 @@ const Header = () => {
             ))}
           </nav>
 
-          <div className="hidden lg:flex items-center gap-4">
+          {/* Desktop Phone Button */}
+          <div className="hidden lg:flex items-center">
             <Button
               size="default"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold touch-target"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold touch-target px-5"
               asChild
             >
               <a href="tel:+48697277724">
                 <Phone className="mr-2 h-4 w-4" />
-                <span className="hidden xl:inline text-lg font-bold">697&nbsp;277&nbsp;724</span>
-                <span className="xl:hidden">Zadzwoń</span>
+                <span className="text-lg font-bold">697&nbsp;277&nbsp;724</span>
               </a>
             </Button>
           </div>
 
+          {/* Mobile Hamburger Button */}
           <button
-            className="lg:hidden p-2.5 -mr-2 touch-target flex items-center justify-center"
+            className={`lg:hidden p-2.5 -mr-2 touch-target flex items-center justify-center rounded-md transition-colors ${
+              isScrolled ? "hover:bg-secondary" : "hover:bg-primary-foreground/10"
+            }`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label={isMenuOpen ? "Zamknij menu" : "Otwórz menu"}
           >
-            {isMenuOpen ? (
-              <X className={`h-6 w-6 ${isScrolled ? "text-foreground" : "text-primary-foreground"}`} />
-            ) : (
-              <Menu className={`h-6 w-6 ${isScrolled ? "text-foreground" : "text-primary-foreground"}`} />
-            )}
+            <Menu className={`h-6 w-6 ${isScrolled ? "text-foreground" : "text-primary-foreground"}`} />
           </button>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        {isMenuOpen && (
-          <div className="lg:hidden fixed inset-0 top-16 sm:top-20 bg-background z-40">
-            <nav className="flex flex-col h-full">
-              <div className="flex-1 overflow-y-auto py-4">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.href}
-                    href={link.href}
-                    className="block px-5 py-4 text-foreground text-lg font-medium hover:bg-secondary transition-colors border-b border-border/50"
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    {link.label}
-                  </a>
-                ))}
-              </div>
-              <div className="p-5 border-t border-border bg-secondary/30 safe-area-inset">
-                <Button 
-                  size="lg"
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold touch-target h-14" 
-                  asChild
-                >
-                  <a href="tel:+48697277724" onClick={() => setIsMenuOpen(false)}>
-                    <Phone className="mr-2 h-5 w-5" />
-                    Zadzwoń: <span className="text-lg font-bold">697&nbsp;277&nbsp;724</span>
-                  </a>
-                </Button>
-              </div>
-            </nav>
+      {/* Mobile Full-Screen Overlay Menu */}
+      <div
+        className={`lg:hidden fixed inset-0 z-50 transition-all duration-300 ${
+          isMenuOpen ? "visible" : "invisible"
+        }`}
+      >
+        {/* Backdrop */}
+        <div
+          className={`absolute inset-0 bg-foreground/50 transition-opacity duration-300 ${
+            isMenuOpen ? "opacity-100" : "opacity-0"
+          }`}
+          onClick={() => setIsMenuOpen(false)}
+        />
+
+        {/* Slide-in Panel */}
+        <div
+          className={`absolute top-0 right-0 h-full w-full max-w-sm bg-background shadow-xl transition-transform duration-300 ease-out ${
+            isMenuOpen ? "translate-x-0" : "translate-x-full"
+          }`}
+        >
+          {/* Close Button */}
+          <div className="flex items-center justify-between p-4 border-b border-border">
+            <span className="font-bold text-lg text-foreground">Menu</span>
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="p-2 rounded-md hover:bg-secondary transition-colors"
+              aria-label="Zamknij menu"
+            >
+              <X className="h-6 w-6 text-foreground" />
+            </button>
           </div>
-        )}
+
+          {/* Navigation Links */}
+          <nav className="flex flex-col py-4">
+            {navLinks.map((link) => (
+              <a
+                key={link.href}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.href)}
+                className="px-6 py-4 text-foreground text-lg font-medium hover:bg-secondary transition-colors border-b border-border/30"
+              >
+                {link.label}
+              </a>
+            ))}
+          </nav>
+
+          {/* Phone Button */}
+          <div className="absolute bottom-0 left-0 right-0 p-5 border-t border-border bg-secondary/30">
+            <Button 
+              size="lg"
+              className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold touch-target h-14" 
+              asChild
+            >
+              <a href="tel:+48697277724" onClick={() => setIsMenuOpen(false)}>
+                <Phone className="mr-2 h-5 w-5" />
+                <span className="text-lg font-bold">697&nbsp;277&nbsp;724</span>
+              </a>
+            </Button>
+          </div>
+        </div>
       </div>
     </header>
   );

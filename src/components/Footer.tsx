@@ -69,7 +69,7 @@ const Footer = () => {
             href="https://lokalny.pro" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="text-sm font-bold text-primary hover:text-blue-600 transition-colors"
+            className="bg-gradient-to-r from-slate-900 via-slate-800 to-blue-600 bg-clip-text text-transparent font-bold text-sm hover:opacity-90 transition-all"
             title="Profesjonalne strony dla biznesów lokalnych"
           >
             Strona od lokalny.pro
